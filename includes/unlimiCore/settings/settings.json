@@ -1,0 +1,10 @@
+{
+    "app_version": "1.0.1",
+    "slug": "unlimicolors",
+    "key_version": "470",
+    "files": {
+        "box_settings": "box_settings.json",
+        "styles": "styles.json",
+        "customizer": "customizer.json"
+    }
+}

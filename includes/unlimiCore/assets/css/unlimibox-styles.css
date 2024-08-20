@@ -1,0 +1,234 @@
+.__unlimithm__startbox {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    border-radius: 50%;
+    line-height: 50px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.__unlimithm__box {
+    position: absolute;
+    opacity: 0.95;
+    top: 100px;
+    left: 100px;
+    width: 250px;
+    background: #fff;
+    box-shadow: -5px 5px 0px rgba(115, 114, 114, 0.7);
+    font-family: Arial;
+    z-index: 99999;
+}
+
+.__unlimithm__box:before {
+    content: '';
+}
+
+.__unlimithm__box:hover {
+    opacity: 1;
+}
+
+.__unlimithm__title-wrapper {
+    width: 100%;
+    height: 30px;
+    background: #e6e6e6;
+    color: #2b2727;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.__unlimithm__moveicon {
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: #efede7;
+    padding: 0px;
+}
+
+.__unlimithm__moveicon > span {
+    margin: 8px;
+}
+
+a.__unlimithm__movebox {
+    width: 30px;
+    height: 30px;
+    background: #f1f3f4;
+    display: inline-block;
+    float: left;
+    cursor: grab;
+    width: calc(100% - 30px);
+    color: #2b2727;
+}
+
+.__unlimithm__closebox {
+    width: 30px;
+    height: 30px;
+    background: #da5a5a;
+    display: inline-block;
+    float: right;
+    cursor: pointer;
+    padding: 0;
+    color: #2b2727;
+}
+
+.__unlimithm__closebox:hover {
+    color: #fff;
+}
+
+.__unlimithm__closebox > span {
+    margin: 4px;
+}
+
+.__unlimithm__title,
+.__unlimithm__title:hover {
+    display: inline-block;
+    float: left;
+    padding: 0px 10px;
+    font-size: 12px;
+    width: calc(100% - 60px);
+    text-align: left;
+    color: #3c4859;
+    font-weight: bold;
+}
+
+.__unlimithm__types {
+    padding: 15px;
+}
+
+.__unlimithm__types label {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.__unlimithm__pannels-wrapper {}
+
+.__unlimithm__pannel {
+    height: auto;
+    display: block;
+    background: white;
+}
+
+.__unlimithm__pannel-title {
+    height: 40px;
+    background: #3c4859;
+    font-size: 13px;
+    line-height: 30px;
+    color: #f1f3f1;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.__unlimithm__pannel-content {
+    text-align: left;
+    font-size: 14px;
+    color: #828282;
+    padding: 0;
+    float: left;
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px;
+    font-weight: 500;
+}
+
+.__unlimithm__pannel-item-wrap {
+    width: 100%;
+    float: left;
+    clear: both;
+    padding: 5px 0 5px;
+    margin: 0;
+}
+
+.__unlimithm__pannel-content label {
+    float: left;
+    max-width: 100px;
+    font-size: 12px;
+    color: #3c4859;
+    font-weight: 500;
+}
+
+.__unlimithm__pannel-content .__unlimithm__action {
+    float: right;
+    width: 50px;
+}
+
+.__unlimithm__pannel-content input[type=color].__unlimithm__action {
+    padding: 1px 2px;
+}
+
+.__unlimithm__bottom {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
+
+button.__unlimithm__bottom_button {
+    width: 100%;
+    font-size: 10px;
+    border-radius: 0;
+    padding: 10px 5px !important;
+    text-align: center;
+    box-shadow: none !important;
+    border: none;
+}
+
+.__unlimithm__box button.__unlimithm__bottom_button.__unlimithm__save {
+    float: left;
+    width: 100%;
+    background-color: #45505e !important;
+    color: white !important;
+    opacity: 0.8 !important;
+    margin: 0 0 10px 0;
+}
+
+.__unlimithm__box button.__unlimithm__bottom_button.__unlimithm__save:hover {
+    opacity: 0.9 !important;
+    box-shadow: none;
+}
+
+button.__unlimithm__bottom_button.__unlimithm__cancel {
+    float: left;
+    background-color: #45505e !important;
+    color: white !important;
+    opacity: 0.5 !important;
+    width: calc(33.33% - 3px);
+    margin: 0 5px 0 0;
+}
+
+.__unlimithm__box button.__unlimithm__bottom_button.__unlimithm__cancel:hover {
+    opacity: 0.9 !important;
+}
+
+button.__unlimithm__bottom_button.__unlimithm__reset {
+    float: left;
+    width: 100%;
+    background-color: #45505e !important;
+    opacity: 0.5 !important;
+    width: calc(33.33% - 3px);
+    margin: 0 5px 0 0;
+}
+
+.__unlimithm__box button.__unlimithm__bottom_button.__unlimithm__reset:hover {
+    opacity: 0.9 !important;
+}
+
+button.__unlimithm__bottom_button.__unlimithm__resetall {
+    float: right;
+    width: 100%;
+    background-color: #45505e !important;
+    opacity: 0.5 !important;
+    width: calc(33.33% - 5px);
+    margin: 0;
+}
+
+.__unlimithm__box button.__unlimithm__bottom_button.__unlimithm__resetall:hover {
+    opacity: 0.9 !important;
+}
+
+.__unlimithm__highlight_element {
+    box-shadow: 0px 0px 0px 2px rgba(194, 212, 210, 0.7) inset;
+}

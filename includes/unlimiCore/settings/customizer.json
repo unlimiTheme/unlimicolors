@@ -1,0 +1,30 @@
+{
+    "sections": {
+        "plugin_settings": {
+            "id": "unlimicolor_plugin_settings",
+            "options": {
+                "title": "UnlimiColors settings",
+                "description": "Select UlimiColors options",
+                "priority": "1001"
+            }
+        }
+    },
+    "settings": {
+        "unlimicolor_plugin_structure_json": {
+            "id": "unlimicolor_plugin_structure_json",
+            "options": {
+                "default": ""
+            }
+        }
+    },
+    "controls": {
+        "unlimicolor_plugin_structure_json": {
+            "id": "unlimicolor_plugin_structure_json",
+            "options": {
+                "label": "Main structure json",
+                "section": "unlimicolor_plugin_settings",
+                "type": "textarea"
+            }
+        }
+    }
+}

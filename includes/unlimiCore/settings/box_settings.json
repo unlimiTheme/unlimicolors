@@ -1,0 +1,28 @@
+{
+    "wrapper": [],
+    "header": [],
+    "headerTypes": [],
+    "panels": {
+        "styles": {
+            "title": "Colors",
+            "content": [{
+                    "label": "Color",
+                    "tag": "input",
+                    "type": "color",
+                    "value": "green",
+                    "data-type": "color",
+                    "data-origin": "styles"
+                },
+                {
+                    "label": "Background",
+                    "tag": "input",
+                    "type": "color",
+                    "value": "red",
+                    "data-type": "background-color",
+                    "data-origin": "styles"
+                }
+            ]
+        }
+    },
+    "footer": []
+}
