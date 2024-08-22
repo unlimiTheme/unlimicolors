@@ -16,6 +16,7 @@ class UnlimithmBox {
     actionEl = this.prefix + 'action';
     panelEl = this.prefix + 'pannel';
     highlightEl = this.prefix + 'highlight_element';
+    highlightOverEl = this.prefix + 'highlight_over_element';
     handleElement = '.' + this.handleEl;
     closeElement = '.' + this.closeEl;
     saveElement = '.' + this.saveEl;
@@ -25,9 +26,12 @@ class UnlimithmBox {
     actionElement = '.' + this.actionEl;
     panelElement = '.' + this.panelEl;
     highlightElement = '.' + this.highlightEl;
+    highlightOverElement = '.' + this.highlightOverEl;
 
     dataType = 'type';
     dataInitValue = 'initval';
+
+    highlightMouse = true;
 
     constructor(options) {
         console.log('UnlimithmBox is ready!');
@@ -40,10 +44,10 @@ class UnlimithmBox {
     start() {
         let self = this;
 
+        this.highlightMouseOver(this.highlightMouse);
+
         // use right click
         $(window).on('contextmenu', function(event) {
-
-            // event.preventDefault();
 
             self.element = event.target;
 
@@ -80,6 +84,7 @@ class UnlimithmBox {
         self.initResetButton();
         self.initResetAllButton();
         self.initActionFields();
+        self.highlightMouseOver(false);
     }
 
     checkInit() {
@@ -97,7 +102,7 @@ class UnlimithmBox {
         $(this.wrapper).css({ 'left': this.posX, 'top': this.posY });
 
         // this.setDefaultFieldsValues();
-        this.highlight(false);
+        this.highlight(true);
     }
 
     highlight(highlight = true) {
@@ -106,6 +111,19 @@ class UnlimithmBox {
         } else {
             $(this.highlightElement).removeClass(this.highlightEl);
         }
+    }
+
+    highlightMouseOver(highlight = true) {
+        let self = this;
+        $('body *').on('mouseover mouseout', function(event) {
+            if (highlight && event.type == 'mouseover') {
+                $(this).addClass(self.highlightOverEl);
+            } else {
+                $(self.highlightOverElement).removeClass(self.highlightOverEl);
+            }
+            return false;
+        });
+
     }
 
     isBox(element) {
@@ -118,6 +136,7 @@ class UnlimithmBox {
             self.close(self.wrapper);
             self.highlight(false);
             self.saveAction(self.element);
+            self.highlightMouseOver(self.highlightMouse);
         });
     }
 

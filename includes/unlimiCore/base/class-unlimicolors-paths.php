@@ -384,13 +384,6 @@ class UnlimiColor_Paths extends UnlimiColor_Base
         return $key;
     }
 
-
-
-
-
-
-
-
     protected function _convertPathToKey( $path, $use_tagname = false, $use_class = false, $use_id = false, $use_body = false ): string
     {
         $key = '';
@@ -538,7 +531,7 @@ class UnlimiColor_Paths extends UnlimiColor_Base
         }
 
         $tagname = $this->_getTagName( $p );
-        $class = array_diff( $p->class, $this->classes_to_ignore );
+        $class = $this->_filterClasses( $p->class );
 
         if ( $tagname == 'body' ) {
 
@@ -565,7 +558,7 @@ class UnlimiColor_Paths extends UnlimiColor_Base
         }
 
         $tagname = $this->_getTagName( $p );
-        $class = array_diff( $p->class, $this->classes_to_ignore );
+        $class = $this->_filterClasses( $p->class );
 
         if ( $tagname == 'body' ) {
 
@@ -673,5 +666,15 @@ class UnlimiColor_Paths extends UnlimiColor_Base
         }
 
         return true;
+    }
+
+    protected function _filterClasses( $classes )
+    {
+        $classes = array_diff( $classes, $this->classes_to_ignore );
+        $classes = array_filter( $classes, function( $item ) {
+            return strpos( $item , '__unlimithm__' ) === false;
+        });
+
+        return $classes;
     }
 }
