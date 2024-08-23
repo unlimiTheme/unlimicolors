@@ -78,6 +78,11 @@ class UnlimiColor_API extends UnlimiColor_Base
         $item_key_version = $item->keyVersion();
 
         if ( $item_key_version != $this->key_version ) {
+
+            if ( $item_key_version > $this->key_version ) {
+                $this->structure->remove( $this->key );
+            }
+
             // generate new element
             $path = new UnlimiColor_Paths();
             $this->key = $path->toKey( $this->path, $this->key_version );

@@ -92,7 +92,7 @@ class UnlimiColor_Box extends UnlimiColor_Base
         foreach ( $key_versions as $key_version => $info ) {
 
             $selected = $key_version == $this->keyVersion ? ' checked' : '';
-            $disabled = $this->exists && $key_version < $this->keyVersion ? ' disabled' : '';
+            $disabled = false && $this->exists && $key_version < $this->keyVersion ? ' disabled' : '';
 
             $before .= '<div class="__unlimithm__keytype-item-wrap">';
             $before .= '<input type="radio" id="keytype'.$key_version .'" name="keytypes" value="'.$key_version.'"' . $selected . $disabled . '>';
