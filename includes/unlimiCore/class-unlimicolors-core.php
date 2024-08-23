@@ -12,7 +12,8 @@ class UnlimiColors_Core
     public function __construct()
     {
         $this->_init();
-        $this->_initAdmin();
+        
+        add_action( 'init', [$this, 'initAdmin'] );
     }
 
     protected function _init()
@@ -21,7 +22,7 @@ class UnlimiColors_Core
         $this->_styles();
     }
 
-    protected function _initAdmin()
+    public function initAdmin()
     {
         new UnlimiColor_Admin();
     }
