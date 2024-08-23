@@ -4,7 +4,7 @@ class UnlimithmBox {
     prefix = '__unlimithm__';
     posX = 0;
     posY = 0;
-    appendTo = 'body';
+    appendTo = '#unlimiThmWrapper';
     wrapper = '#' + this.prefix + 'stylebox';
 
     handleEl = this.prefix + 'movebox';
@@ -88,7 +88,7 @@ class UnlimithmBox {
     }
 
     checkInit() {
-        return this.isBox(this.element) || $(this.element).attr('class') == this.closeEl;
+        return this.suspendBox() || this.isBox(this.element) || $(this.element).attr('class') == this.closeEl;
     }
 
     checkOpenBox() {
@@ -115,6 +115,11 @@ class UnlimithmBox {
 
     highlightMouseOver(highlight = true) {
         let self = this;
+
+        if (this.suspendBox()) {
+            return;
+        }
+
         $('body *').on('mouseover mouseout', function(event) {
             if (highlight && event.type == 'mouseover') {
                 $(this).addClass(self.highlightOverEl);
@@ -128,6 +133,10 @@ class UnlimithmBox {
 
     isBox(element) {
         return $(element).closest(this.wrapper).length > 0;
+    }
+
+    suspendBox() {
+        return $('#unlimiThmUseBox').val();
     }
 
     initClose() {

@@ -10,6 +10,12 @@
         }
     },
     "settings": {
+        "unlimicolor_plugin_use_box": {
+            "id": "unlimicolor_plugin_use_box",
+            "options": {
+                "default": ""
+            }
+        },
         "unlimicolor_plugin_structure_json": {
             "id": "unlimicolor_plugin_structure_json",
             "options": {
@@ -18,6 +24,14 @@
         }
     },
     "controls": {
+        "unlimicolor_plugin_use_box": {
+            "id": "unlimicolor_plugin_use_box",
+            "options": {
+                "label": "Pause!",
+                "section": "unlimicolor_plugin_settings",
+                "type": "checkbox"
+            }
+        },
         "unlimicolor_plugin_structure_json": {
             "id": "unlimicolor_plugin_structure_json",
             "options": {
