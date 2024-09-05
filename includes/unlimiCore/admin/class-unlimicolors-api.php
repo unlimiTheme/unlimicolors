@@ -186,8 +186,8 @@ class UnlimiColor_API extends UnlimiColor_Base
         if ( wp_verify_nonce( $nonce, UNLIMICOLORS_NONCE ) ) {
              die( 'Security check' ); 
         }
-
-        $request = (array) @$_POST['data'];
+        
+        $request = isset( $_POST['data'] ) ? sanitize_text_field( wp_unslash( $_POST['data'] ) ) : [];
         $request = $this->_toObject($request);
 
         $this->key = $this->_getKey($request);

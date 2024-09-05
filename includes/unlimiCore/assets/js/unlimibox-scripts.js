@@ -416,7 +416,7 @@ class UnlimithmBox {
                 data: {
                     action: action,
                     nonce: customizerAction.nonce,
-                    data: data,
+                    data: JSON.stringify(data),
                 },
                 dataType: 'json',
                 cache: false,
