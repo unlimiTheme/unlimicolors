@@ -18,6 +18,9 @@
  * Domain Path:       /languages
  */
 
+error_reporting(E_ALL);
+ini_set('display_errors', true);
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
