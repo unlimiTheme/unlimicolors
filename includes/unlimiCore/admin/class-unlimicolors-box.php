@@ -15,7 +15,7 @@ class UnlimiColor_Box extends UnlimiColor_Base
 
     protected $defaultValues = [];
 
-    protected $keyVersions;
+    protected $keyVersion;
 
     protected $exists = false;
 
