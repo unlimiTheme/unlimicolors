@@ -186,7 +186,7 @@ class UnlimiColor_API extends UnlimiColor_Base
              die( 'Security check' ); 
         }
 
-        $request = (array) @$_POST['data'];
+        $request = (array) get_post_field('data');
         $request = $this->_toObject($request);
 
         $this->key = $this->_getKey($request);
