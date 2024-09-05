@@ -181,7 +181,8 @@ class UnlimiColor_API extends UnlimiColor_Base
 
     protected function _parseRequest()
     {
-        if ( !isset( $_GET['customize_preview_nonce'] ) || wp_verify_nonce( $_GET['customize_preview_nonce'], UNLIMICOLORS_NONCE ) ) {
+        $nonce = get_query_var('customize_preview_nonce');
+        if ( empty( $nonce ) || wp_verify_nonce( $nonce, UNLIMICOLORS_NONCE ) ) {
              die( 'Security check' ); 
         }
 
