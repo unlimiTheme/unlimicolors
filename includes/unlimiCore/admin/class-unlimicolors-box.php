@@ -199,6 +199,7 @@ class UnlimiColor_Box extends UnlimiColor_Base
         $item[ 'id' ] = $id;
 
         $html .= '<label for="'. $item[ 'id' ] .'">' . $item[ 'label' ] . '</label>';
+        $html .= '<button class="__unlimithm__reset-one-item">reset</button>';
         $html .= $this->_doItemByType( $item[ 'tag' ], $item );
         $html .= '</p>';
 

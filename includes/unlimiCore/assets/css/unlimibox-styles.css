@@ -236,3 +236,12 @@ button.__unlimithm__bottom_button.__unlimithm__resetall {
 .__unlimithm__highlight_over_element {
     box-shadow: 1px 1px 2px 1px rgba(194, 212, 210, 0.9);
 }
+
+.__unlimithm__reset-one-item {
+    float: right;
+    padding: 1px 7px;
+    border: none;
+    font-size: 12px;
+    line-height: 26px;
+    color: #6f5555;
+}

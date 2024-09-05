@@ -23,6 +23,10 @@ class UnlimiColor_ItemStructure extends UnlimiColor_Base
 
     public function getStructure(bool $toObject = true)
     {
+        if (empty((array) $this->styles)) {
+            return $this->_toObject([], $toObject);
+        }
+
         $c = new stdClass();
         $c->key = $this->key;
         $c->key_version = $this->keyCodeVersion;
@@ -52,6 +56,9 @@ class UnlimiColor_ItemStructure extends UnlimiColor_Base
         $this->keyCodeVersion = $key_version;
 
         foreach ($items as $k => $v) {
+            if (empty($v)) {
+                continue;
+            }
             $items->{$k} = new stdClass();
             $items->{$k}->value = $v;
             $items->{$k}->initial = $default->{$k} ?? '';
@@ -68,6 +75,11 @@ class UnlimiColor_ItemStructure extends UnlimiColor_Base
                 $this->styles->{$k} =$this->_getEmptyStyleItem();
             }
 
+            if (empty($v)) {
+                unset($this->styles->{$k});
+                continue;
+            }
+            
             $this->styles->{$k}->value = $v;
         }
     }

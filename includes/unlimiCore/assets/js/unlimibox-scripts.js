@@ -17,6 +17,7 @@ class UnlimithmBox {
     panelEl = this.prefix + 'pannel';
     highlightEl = this.prefix + 'highlight_element';
     highlightOverEl = this.prefix + 'highlight_over_element';
+    resetOneEl = this.prefix + 'reset-one-item';
     handleElement = '.' + this.handleEl;
     closeElement = '.' + this.closeEl;
     saveElement = '.' + this.saveEl;
@@ -27,6 +28,7 @@ class UnlimithmBox {
     panelElement = '.' + this.panelEl;
     highlightElement = '.' + this.highlightEl;
     highlightOverElement = '.' + this.highlightOverEl;
+    resetOneElement = '.' + this.resetOneEl;
 
     dataType = 'type';
     dataInitValue = 'initval';
@@ -85,6 +87,7 @@ class UnlimithmBox {
         self.initResetAllButton();
         self.initActionFields();
         self.highlightMouseOver(false);
+        self.initResetOneButton();
     }
 
     checkInit() {
@@ -187,6 +190,14 @@ class UnlimithmBox {
         });
     }
 
+    initResetOneButton() {
+        let self = this;
+
+        $(this.resetOneElement).click(function() {
+            $(this).parent().find(self.actionElement).val('#000000').attr('data-reset', 'true');
+        });
+    }
+
     confirmButton(element, callback) {
         let text = $(element).attr('data-confirm');
         if (confirm(text) == true && typeof callback == 'function') {
@@ -215,7 +226,7 @@ class UnlimithmBox {
         
         $(`${this.actionElement}.changed`).each((index, el) => {
             let type = self.getDataValueType(el);
-            data[type] = $(el).val();
+            data[type] = $(el).attr('data-reset') == 'true' ? '' : $(el).val();
         });
 
         await this._sendRequest('save', data);
@@ -403,7 +414,7 @@ class UnlimithmBox {
     }
 
     markAsChanged(el) {
-        $(el).addClass('changed');
+        $(el).addClass('changed').attr('data-reset', 'false');
     }
 
     getDataType() {

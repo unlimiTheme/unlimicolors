@@ -141,12 +141,16 @@ class UnlimiColor_Structure extends UnlimiColor_Base
         return property_exists( $keys, $key );
     }
 
-    protected function _add( string $key, string $key_version, object $item ): void
+    protected function _add( string $key, string $key_version, object $item ): bool
     {
         $itemStructure = new UnlimiColor_ItemStructure();
         $itemStructure->add( $key, $key_version, $item );
         $newStyles = $itemStructure->getStructure();
-        
+
+        if (empty((array) $newStyles)) {
+            return true;
+        }
+
         $innerKey = $this->_generateInnerKey();
 
         $styles = $this->_getStyles();
@@ -155,6 +159,8 @@ class UnlimiColor_Structure extends UnlimiColor_Base
         $this->_setInnerKey( $key, $innerKey );
         $this->_setStyles( $styles );
         $this->_addKeyVersion( $innerKey, $key_version );
+
+        return true;
     }
 
     protected function _update( string $key, string $key_version, object $items )
@@ -167,6 +173,11 @@ class UnlimiColor_Structure extends UnlimiColor_Base
 
         $itemStructure->update( $items );
         $newStyles = $itemStructure->getStructure();
+
+        if (empty((array) $newStyles)) {
+            $this->remove($key);
+            return true;
+        }
 
         $styles->{$innerKey} = $newStyles;
         $this->_setStyles($styles);
