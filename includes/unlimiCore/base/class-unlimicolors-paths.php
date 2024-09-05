@@ -269,7 +269,7 @@ class UnlimiColor_Paths extends UnlimiColor_Base
         $key = '';
 
         $path = (array) $path;
-        $this_path[] = array_reverse( $path )[0];
+        $this_path[] = (array) @array_reverse( $path )[0];
 
         $key = $this->_smartConvertPathToKey( $this_path, true, true, true );
         
@@ -306,8 +306,8 @@ class UnlimiColor_Paths extends UnlimiColor_Base
         $key = '';
 
         $path = (array) $path;
-        $this_path[] = $path[0];
-        $this_path[] = array_reverse($path)[0];
+        $this_path[] = (array) @$path[0];
+        $this_path[] = (array) @array_reverse($path)[0];
 
         $key = $this->_smartConvertPathToKey( $this_path, true, true, true, true );
         
