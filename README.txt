@@ -3,7 +3,7 @@ Contributors: unlimitheme
 Tags: colors, design, customize, customizer, add style
 Requires at least: 6.0
 Tested up to: 6.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,5 +57,9 @@ This plugin allows you to customize the colors of the themes through the Customi
 == Changelog ==
 
 = 1.0.0 =
-*Release Date - 28 August 2024*
+*Release Date - 20 August 2024*
 - Initial version
+
+= 1.0.1 =
+*Release Date - 06 September 2024*
+- Small fixes
