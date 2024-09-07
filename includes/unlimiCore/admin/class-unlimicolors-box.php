@@ -194,13 +194,15 @@ class UnlimiColor_Box extends UnlimiColor_Base
         $html = '<p class="__unlimithm__pannel-item-wrap">';
 
         $item[ 'value' ] = @$this->defaultValues[ $item[ 'data-type' ] ][ 'value' ];
-        
+        $item[ 'important' ] = @$this->defaultValues[ $item[ 'data-type' ] ][ 'important' ];
+
         $id = $this->_generateId( $item );
         $item[ 'id' ] = $id;
 
         $html .= '<label for="'. $item[ 'id' ] .'">' . $item[ 'label' ] . '</label>';
         $html .= '<button class="__unlimithm__reset-one-item">reset</button>';
         $html .= $this->_doItemByType( $item[ 'tag' ], $item );
+        $html .= '<span class="__unlimithm__booster_wrapper"><input type="checkbox" id="__unlimithm__booster_id'.$item[ 'id' ].'" class="__unlimithm__booster" title="Style booster" '.($item[ 'important' ] == true ? 'checked' : '').'><label for="__unlimithm__booster_id'.$item[ 'id' ].'"></label></span>';
         $html .= '</p>';
 
         return $html;

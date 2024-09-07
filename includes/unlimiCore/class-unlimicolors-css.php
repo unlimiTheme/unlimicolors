@@ -49,7 +49,7 @@ class UnlimiColors_CSS extends UnlimiColor_Base
     {
         $s = '';
         foreach ($items as $k => $v) {
-            $s .= "$k: $v->value".($this->use_important ? ' !important' : '').";";
+            $s .= "$k: $v->value".(isset($v->important) && $v->important === true ? ' !important' : '').";";
         }
         
         return $s;

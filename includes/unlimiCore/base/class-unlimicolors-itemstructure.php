@@ -60,7 +60,8 @@ class UnlimiColor_ItemStructure extends UnlimiColor_Base
                 continue;
             }
             $items->{$k} = new stdClass();
-            $items->{$k}->value = $v;
+            $items->{$k}->value = $v->value;
+            $items->{$k}->important = $v->important;
             $items->{$k}->initial = $default->{$k} ?? '';
         }
 

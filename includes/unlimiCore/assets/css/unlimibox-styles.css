@@ -245,3 +245,12 @@ button.__unlimithm__bottom_button.__unlimithm__resetall {
     line-height: 26px;
     color: #6f5555;
 }
+
+.__unlimithm__reset-one-item:hover {
+    color: #da5a5a;
+}
+
+.__unlimithm__booster_wrapper {
+    float: right;
+    padding: 2px 5px;
+}

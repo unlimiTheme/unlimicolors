@@ -18,6 +18,7 @@ class UnlimithmBox {
     highlightEl = this.prefix + 'highlight_element';
     highlightOverEl = this.prefix + 'highlight_over_element';
     resetOneEl = this.prefix + 'reset-one-item';
+    boosterEl = this.prefix + 'booster';
     handleElement = '.' + this.handleEl;
     closeElement = '.' + this.closeEl;
     saveElement = '.' + this.saveEl;
@@ -29,6 +30,7 @@ class UnlimithmBox {
     highlightElement = '.' + this.highlightEl;
     highlightOverElement = '.' + this.highlightOverEl;
     resetOneElement = '.' + this.resetOneEl;
+    boosterElement = '.' + this.boosterEl;
 
     dataType = 'type';
     dataInitValue = 'initval';
@@ -195,6 +197,7 @@ class UnlimithmBox {
 
         $(this.resetOneElement).click(function() {
             $(this).parent().find(self.actionElement).val('#000000').attr('data-reset', 'true');
+            $(this).parent().find(self.boosterElement).prop('checked', false);
         });
     }
 
@@ -226,7 +229,13 @@ class UnlimithmBox {
         
         $(`${this.actionElement}.changed`).each((index, el) => {
             let type = self.getDataValueType(el);
-            data[type] = $(el).attr('data-reset') == 'true' ? '' : $(el).val();
+            let v = $(el).attr('data-reset') == 'true' ? '' : $(el).val();
+            let b = $(el).parent().find(self.boosterElement).prop('checked');
+
+            data[type] = {
+                value: v,
+                important: b
+            };
         });
 
         await this._sendRequest('save', data);
