@@ -36,12 +36,10 @@ class UnlimiColor_Admin extends UnlimiColor_Base
 
 	public function settingsArea()
 	{
-		$html = '<div id="unlimiThmWrapper" class="__unlimithm__box-main-wrapper">';
-		$html .= '<div class="__unlimithm__box-main-settings">';
-		$html .= '<input id="unlimiThmUseBox" type="hidden" value="'.get_theme_mod('unlimicolor_plugin_use_box').'" class="__unlimithm__box-main-settings-use" />';
-		$html .= '</div>';
-		$html .= '</div>';
-
-		echo $html;
+		echo '<div id="unlimiThmWrapper" class="__unlimithm__box-main-wrapper">';
+		echo '<div class="__unlimithm__box-main-settings">';
+		echo '<input id="unlimiThmUseBox" type="hidden" value="'. esc_attr( get_theme_mod( 'unlimicolor_plugin_use_box' ) ) . '" class="__unlimithm__box-main-settings-use" />';
+		echo '</div>';
+		echo '</div>';
 	}
 }
