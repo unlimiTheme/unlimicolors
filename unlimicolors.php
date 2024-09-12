@@ -9,7 +9,7 @@
  * Plugin Name:       UnlimiColors
  * Plugin URI:        https://github.com/unlimiTheme/unlimicolors
  * Description:       Color your website as you wish. Just select an item, choose your favorite color and then enjoy.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            UnlimiTheme
  * Author URI:        https://github.com/unlimiTheme
  * License:           GPL-2.0+
@@ -26,7 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Currently plugin version.
  */
-define( 'UNLIMICOLORS_VERSION', '1.0.1' );
+define( 'UNLIMICOLORS_VERSION', '1.0.2' );
 
 /**
  * Plugin name.
