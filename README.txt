@@ -1,4 +1,4 @@
-=== UnlimiColors - Color your website ===
+=== UnlimiColors ===
 Contributors: unlimitheme
 Tags: colors, design, customize, customizer, add style
 Requires at least: 6.0
