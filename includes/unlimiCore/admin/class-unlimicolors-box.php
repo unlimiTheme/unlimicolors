@@ -100,7 +100,7 @@ class UnlimiColor_Box extends UnlimiColor_Base
             $before .= '</div>';
         }
 
-        $before .= '</div>';
+        $before .= '<div class="__unlimithm__clearfix"></div></div>';
         
         return ['before' => $before];
     }
