@@ -59,6 +59,7 @@ class UnlimiColor_ItemStructure extends UnlimiColor_Base
             if (empty($v)) {
                 continue;
             }
+
             $items->{$k} = new stdClass();
             $items->{$k}->value = $v->value;
             $items->{$k}->important = $v->important;
@@ -81,7 +82,10 @@ class UnlimiColor_ItemStructure extends UnlimiColor_Base
                 continue;
             }
             
-            $this->styles->{$k}->value = $v;
+            $this->styles->{$k} = new stdClass();
+            $this->styles->{$k}->value = $v->value;
+            $this->styles->{$k}->important = $v->important;
+            $this->styles->{$k}->initial = $default->{$k} ?? '';
         }
     }
 
