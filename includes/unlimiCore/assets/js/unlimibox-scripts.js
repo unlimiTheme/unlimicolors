@@ -63,7 +63,7 @@ class UnlimithmBox {
                 self.init();
             }
 
-            if (!self.isBox(event.target)) {
+            if (!self.isBox(event.target) && !self.suspendBox()) {
                 event.preventDefault();
             }
         });
