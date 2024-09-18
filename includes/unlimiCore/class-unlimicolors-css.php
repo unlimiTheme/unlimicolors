@@ -13,10 +13,10 @@ class UnlimiColors_CSS extends UnlimiColor_Base
 {
     protected $settings;
 
-    protected $use_important = false;
-
     public function __construct()
-    {}
+    {
+
+    }
 
     public function toCSS( UnlimiColor_Structure $structure ): string
     {
@@ -30,14 +30,17 @@ class UnlimiColors_CSS extends UnlimiColor_Base
             $items = $s->getStylesStructure();
             $key_version = $s->keyVersion();
 
-            $key = $path->keyToCssPath( $s->key() );
-            $toStyle = $this->_toStyles( $items );
+            foreach ( $items as $selector => $item ) {
 
-            if ( !isset( $css[$key_version] ) ) {
-                $css[$key_version] = '';
+                $key = $path->keyToCssPath( $s->key() );
+                $toStyle = $this->_toStyles( $item );
+
+                if ( !isset( $css[$key_version] ) ) {
+                    $css[$key_version] = '';
+                }
+
+                $css[$key_version] .= "$key$selector { $toStyle }";
             }
-
-            $css[$key_version] .= "$key { $toStyle }";
         }
 
         ksort($css);
