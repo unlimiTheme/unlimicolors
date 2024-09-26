@@ -19,11 +19,18 @@ class UnlimiColor_Box extends UnlimiColor_Base
 
     protected $exists = false;
 
-    public function __construct($structure, string $key, string $cssPath, $defaultValues=[], string $keyVersion=null, bool $exists=false)
+    protected $selectors_by_tagname = [
+        'a' => [':hover']
+    ];
+
+    protected $tagname;
+
+    public function __construct($structure, string $key, string $cssPath, string $tagname, $defaultValues=[], string $keyVersion=null, bool $exists=false)
     {
         $this->structure = $this->_toObject($structure, false);
         $this->key = $key;
         $this->cssPath = $cssPath;
+        $this->tagname = $tagname;
         $this->defaultValues = $this->_toObject($defaultValues, false);
         $this->keyVersion = $keyVersion;
         $this->exists = $exists;
@@ -182,7 +189,34 @@ class UnlimiColor_Box extends UnlimiColor_Base
         $after = '</div>';
 
         $html = '';
-        foreach ($content as $item) {       
+        $structure = [];
+        foreach ($content as $item) {
+
+            $v = @$this->defaultValues[' '][$item['data-type']]['value'];
+            $i = @$this->defaultValues[' '][$item['data-type']]['important'];
+            $in = @$this->defaultValues[' '][$item['data-type']]['initial'];
+            $item['value'] = $v ? $v : ''; 
+            $item['important'] = $i ? $i : '';
+            $item['initial'] = $in ? $in : '';
+            $item['selector'] = ' ';
+            $structure[] = $item;
+
+            if (isset($this->selectors_by_tagname[$this->tagname])) {
+
+                foreach ($this->selectors_by_tagname[$this->tagname] as $t) {
+                    $v = @$this->defaultValues[$t][$item['data-type']]['value'];
+                    $i = @$this->defaultValues[$t][$item['data-type']]['important'];
+                    $in = @$this->defaultValues[$t][$item['data-type']]['initial'];
+                    $item['value'] = $v ? $v : ''; 
+                    $item['important'] = $i ? $i : '';
+                    $item['initial'] = $in ? $in : '';
+                    $item['selector'] = $t;
+                    $structure[] = $item;
+                }
+            }
+        }
+
+        foreach ($structure as $item) {
             $html .= $this->_doItem($item);
         }
 
@@ -193,16 +227,22 @@ class UnlimiColor_Box extends UnlimiColor_Base
     {
         $html = '<p class="__unlimithm__pannel-item-wrap">';
 
-        $item[ 'value' ] = @$this->defaultValues[ $item[ 'data-type' ] ][ 'value' ];
-        $item[ 'important' ] = @$this->defaultValues[ $item[ 'data-type' ] ][ 'important' ];
+        $selector = trim($item[ 'selector' ]);
+        $item[ 'data-selector' ] = $selector;
 
         $id = $this->_generateId( $item );
-        $item[ 'id' ] = $id;
+        $item[ 'id' ] = $id . ucfirst(str_replace(':', '', $selector));
+        
+        $label = $item[ 'label' ] . ($selector ? " ($selector) " : '');
+        $checked = $item[ 'important' ] == true ? 'checked' : '';
 
-        $html .= '<label for="'. $item[ 'id' ] .'">' . $item[ 'label' ] . '</label>';
+        $html .= '<label for="'. $item[ 'id' ] .'">' . $label . '</label>';
         $html .= '<button class="__unlimithm__reset-one-item">reset</button>';
         $html .= $this->_doItemByType( $item[ 'tag' ], $item );
-        $html .= '<span class="__unlimithm__booster_wrapper"><input type="checkbox" id="__unlimithm__booster_id'.$item[ 'id' ].'" class="__unlimithm__booster" title="Style booster" '.($item[ 'important' ] == true ? 'checked' : '').'><label for="__unlimithm__booster_id'.$item[ 'id' ].'"></label></span>';
+        $html .= '<span class="__unlimithm__booster_wrapper">';
+        $html .= '<input type="checkbox" id="__unlimithm__booster_id'.$item[ 'id' ].'" class="__unlimithm__booster" title="Style booster" '.$checked.'>';
+        $html .= '<label for="__unlimithm__booster_id'.$item[ 'id' ].'"></label>';
+        $html .= '</span>';
         $html .= '</p>';
 
         return $html;
@@ -237,7 +277,7 @@ class UnlimiColor_Box extends UnlimiColor_Base
 
     protected function _filterAttrs(array $attr)
     {
-        $ignore = [ 'tag', 'label', 'class' ];
+        $ignore = [ 'tag', 'label', 'class', 'selector', 'important' ];
 
         return array_diff_key( $attr, array_flip( $ignore ) );
     }

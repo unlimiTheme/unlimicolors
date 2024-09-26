@@ -55,37 +55,55 @@ class UnlimiColor_ItemStructure extends UnlimiColor_Base
         $this->key = $key;
         $this->keyCodeVersion = $key_version;
 
-        foreach ($items as $k => $v) {
-            if (empty($v)) {
-                continue;
-            }
+        foreach ($items as $selector => $item) {
 
-            $items->{$k} = new stdClass();
-            $items->{$k}->value = $v->value;
-            $items->{$k}->important = $v->important;
-            $items->{$k}->initial = $default->{$k} ?? '';
+            foreach ($item as $k => $v) {
+                if (empty($v)) {
+                    continue;
+                }
+
+                $items->{$selector}->{$k} = new stdClass();
+                $items->{$selector}->{$k}->value = $v->value;
+                $items->{$selector}->{$k}->important = $v->important;
+                $items->{$selector}->{$k}->initial = $default->{$k} ?? '';
+            }
         }
+
+
+        // foreach ($items as $k => $v) {
+        //     if (empty($v)) {
+        //         continue;
+        //     }
+
+        //     $items->{$k} = new stdClass();
+        //     $items->{$k}->value = $v->value;
+        //     $items->{$k}->important = $v->important;
+        //     $items->{$k}->initial = $default->{$k} ?? '';
+        // }
 
         $this->styles = $items;
     }
 
     public function update(object $items): void
     {
-        foreach ($items as $k => $v) {
+        foreach ($items as $selector => $item) {
 
-            if (!property_exists($this->styles, $k)) {
-                $this->styles->{$k} =$this->_getEmptyStyleItem();
-            }
+            foreach ($item as $k => $v) {
 
-            if (empty($v)) {
-                unset($this->styles->{$k});
-                continue;
+                if (!property_exists($this->styles, $k)) {
+                    $this->styles->{$selector}->{$k} = $this->_getEmptyStyleItem();
+                }
+
+                if (empty($v)) {
+                    unset($this->styles->{$selector}->{$k});
+                    continue;
+                }
+                
+                $this->styles->{$selector}->{$k} = new stdClass();
+                $this->styles->{$selector}->{$k}->value = $v->value;
+                $this->styles->{$selector}->{$k}->important = $v->important;
+                $this->styles->{$selector}->{$k}->initial = $default->{$k} ?? '';
             }
-            
-            $this->styles->{$k} = new stdClass();
-            $this->styles->{$k}->value = $v->value;
-            $this->styles->{$k}->important = $v->important;
-            $this->styles->{$k}->initial = $default->{$k} ?? '';
         }
     }
 

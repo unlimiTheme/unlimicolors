@@ -60,12 +60,16 @@ class UnlimiColor_API extends UnlimiColor_Base
             $key = $path->toKey( $this->path ?? [], $defaultKeyVersion );
             $this->key_version = $defaultKeyVersion;
         }
+
+        $this_path = $this->_toObject($this->path, false);
+        $last_element = end($this_path);
+
         $css = $path->keyToCssPath( $key );
         
         $elemntStructure = new UnlimiColor_ItemStructure( $elementStructure );
         $elementStyles = $elemntStructure->getStylesStructure();
         
-        $box = new UnlimiColor_Box( $boxSetting, $key, $css, $elementStyles, $this->key_version, $already_exists );
+        $box = new UnlimiColor_Box( $boxSetting, $key, $css, @$last_element['tagname'] , $elementStyles, $this->key_version, $already_exists);
         $html = $box->get();
 
         $this->_response('success', ['html' => $html]);
@@ -165,10 +169,7 @@ class UnlimiColor_API extends UnlimiColor_Base
     protected function _getData(object $request) 
     {
         $data = new \stdClass();
-        $data = $request;
-        foreach ($this->unsetData as $unset) {
-            unset($data->{$unset});
-        }
+        $data = $request->styles ?? new \StdClass();
 
         return $data;
     }

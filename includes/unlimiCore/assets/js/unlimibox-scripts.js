@@ -219,6 +219,7 @@ class UnlimithmBox {
 
         let self = this;
         let data = {};
+        data.styles = {};
 
         data.key = self.getKey();
         data.key_version = self.getKeyVersion();
@@ -231,8 +232,12 @@ class UnlimithmBox {
             let type = self.getDataValueType(el);
             let v = $(el).attr('data-reset') == 'true' ? '' : $(el).val();
             let b = $(el).parent().find(self.boosterElement).prop('checked');
+            let s = $(el).attr('data-selector');
+            s = s == '' ? ' ' : s;
 
-            data[type] = {
+            data.styles[s] = typeof data.styles[s] == 'undefined' ? {} : data.styles[s];
+
+            data.styles[s][type] = {
                 value: v,
                 important: b
             };

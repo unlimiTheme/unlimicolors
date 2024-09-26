@@ -454,9 +454,13 @@ class UnlimiColor_Paths extends UnlimiColor_Base
 
             $key .= $_tagname . $_class;
         }
-        
+              
         if ( strpos( $key, $this->delimiters['space'][1] ) === 0 ) {
-            $key = trim( $key, $this->delimiters['space'][1] );
+            $key = substr( $key, 3, strlen($key) );
+        }
+
+        if ( strrpos( $key, $this->delimiters['class'][1] ) === strlen( $key ) - 3 ) {
+            $key = substr( $key, 0, strlen($key) - 3 );
         }
 
         return $key;
@@ -609,17 +613,6 @@ class UnlimiColor_Paths extends UnlimiColor_Base
             return $item[1] == 1;
         } );
     }
-
-
-
-
-
-
-
-
-
-
-
 
     protected function _convertKeyToCssPath( $key )
     {
