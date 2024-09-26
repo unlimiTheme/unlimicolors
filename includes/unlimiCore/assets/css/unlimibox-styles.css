@@ -249,6 +249,9 @@ button.__unlimithm__reset-one-item {
     line-height: 18px !important;
     color: #6f5555 !important;
     background: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    text-transform: none !important;
 }
 
 button.__unlimithm__reset-one-item:hover {

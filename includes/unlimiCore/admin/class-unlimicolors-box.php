@@ -96,7 +96,11 @@ class UnlimiColor_Box extends UnlimiColor_Base
 
         $before = '<div class="__unlimithm__types">';
 
+        $i = 0;
         foreach ( $key_versions as $key_version => $info ) {
+            if ($i++%2 == 1) {
+                continue;
+            }
 
             $selected = $key_version == $this->keyVersion ? ' checked' : '';
             $disabled = false && $this->exists && $key_version < $this->keyVersion ? ' disabled' : '';
@@ -106,6 +110,22 @@ class UnlimiColor_Box extends UnlimiColor_Base
             $before .= '<label for="keytype'.$key_version .'">'.$info[2].'</label>';
             $before .= '</div>';
         }
+
+        $i = 0;
+        foreach ( $key_versions as $key_version => $info ) {
+            if ($i++%2 == 0) {
+                continue;
+            }
+            
+            $selected = $key_version == $this->keyVersion ? ' checked' : '';
+            $disabled = false && $this->exists && $key_version < $this->keyVersion ? ' disabled' : '';
+
+            $before .= '<div class="__unlimithm__keytype-item-wrap">';
+            $before .= '<input type="radio" id="keytype'.$key_version .'" name="keytypes" value="'.$key_version.'"' . $selected . $disabled . '>';
+            $before .= '<label for="keytype'.$key_version .'">'.$info[2].'</label>';
+            $before .= '</div>';
+        }
+
 
         $before .= '<div class="__unlimithm__clearfix"></div></div>';
         
