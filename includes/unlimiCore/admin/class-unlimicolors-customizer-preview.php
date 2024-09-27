@@ -46,11 +46,9 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
 
     public function enqueueScriptsLivePreview()
     {
-        wp_enqueue_script('customize-jquery-ui', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/js/jquery-ui-1.13.2/jquery-ui.min.js', array('jquery'), 'v1.13.2', ['in_footer' => true]);
-
         wp_enqueue_style(UNLIMICOLORS_SLUG.'box-styles', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/css/unlimibox-styles.css', [], UNLIMICOLORS_VERSION);
         wp_enqueue_style(UNLIMICOLORS_SLUG.'icons', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/css/icons.css', [], UNLIMICOLORS_VERSION);
-        wp_enqueue_script(UNLIMICOLORS_SLUG.'box-scripts-js', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/js/unlimibox-scripts.js', array('jquery', 'customize-jquery-ui'), UNLIMICOLORS_VERSION, ['in_footer' => true]);
+        wp_enqueue_script(UNLIMICOLORS_SLUG.'box-scripts-js', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/js/unlimibox-scripts.js', array('jquery', 'jquery-ui-draggable'), UNLIMICOLORS_VERSION, ['in_footer' => true]);
 
         wp_enqueue_script(UNLIMICOLORS_SLUG.'-customizer-previewer', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/js/customizer-preview.js', array( 'customize-preview-widgets', UNLIMICOLORS_SLUG.'box-scripts-js'), UNLIMICOLORS_VERSION, ['in_footer' => true]);
         wp_localize_script(UNLIMICOLORS_SLUG.'-customizer-previewer', 'customizerAction', array(
