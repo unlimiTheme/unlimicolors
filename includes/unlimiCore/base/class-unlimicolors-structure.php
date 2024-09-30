@@ -4,7 +4,7 @@ namespace UnlimiCore\Base;
 
 use stdClass;
 
-class UnlimiColor_Structure extends UnlimiColor_Base
+class UnlimiColors_Structure extends UnlimiColors_Base
 {
     protected $structure;
 
@@ -49,7 +49,7 @@ class UnlimiColor_Structure extends UnlimiColor_Base
 
     public function get(string $key): object
     {
-        return new UnlimiColor_ItemStructure($this->_getStyle($key));
+        return new UnlimiColors_ItemStructure($this->_getStyle($key));
     }
 
     public function add(string $key, string $key_version, object $items, bool $increaseVersion=true)
@@ -143,7 +143,7 @@ class UnlimiColor_Structure extends UnlimiColor_Base
 
     protected function _add( string $key, string $key_version, object $item ): void
     {
-        $itemStructure = new UnlimiColor_ItemStructure();
+        $itemStructure = new UnlimiColors_ItemStructure();
         $itemStructure->add( $key, $key_version, $item );
         $newStyles = $itemStructure->getStructure();
         

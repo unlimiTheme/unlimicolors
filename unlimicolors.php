@@ -60,7 +60,7 @@ define( 'UNLIMICOLORS_NONCE', 'unlimicolors-customize-action' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-unlimicolors-activator.php
  */
-function activate_unlimicolors() {
+function unlimicolors_activate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-unlimicolors-activator.php';
 	UnlimiColors_Activator::activate();
 }
@@ -69,13 +69,13 @@ function activate_unlimicolors() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-unlimicolors-deactivator.php
  */
-function deactivate_unlimicolors() {
+function unlimicolors_deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-unlimicolors-deactivator.php';
 	UnlimiColors_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_unlimicolors' );
-register_deactivation_hook( __FILE__, 'deactivate_unlimicolors' );
+register_activation_hook( __FILE__, 'unlimicolors_activate' );
+register_deactivation_hook( __FILE__, 'unlimicolors_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -92,13 +92,10 @@ register_deactivation_hook( __FILE__, 'deactivate_unlimicolors' );
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function unlimicolors_run() {
 
 	$plugin = new UnlimiColors();
 	$plugin->run();
 
 }
-run_plugin_name();
-
-
-
+unlimicolors_run();

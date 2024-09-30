@@ -2,7 +2,7 @@
 
 namespace UnlimiCore\Base;
 
-class UnlimiColors_Customize_base extends UnlimiColor_Base
+class UnlimiColors_Customize_base extends UnlimiColors_Base
 {
 	/**
 	 * Constructor.

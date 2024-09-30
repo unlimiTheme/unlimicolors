@@ -2,13 +2,13 @@
 
 namespace UnlimiCore\Admin;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
-use \UnlimiCore\Base\UnlimiColor_Paths;
-use \UnlimiCore\Base\UnlimiColor_ItemStructure;
-use \UnlimiCore\Base\UnlimiColor_Structure;
+use \UnlimiCore\Base\UnlimiColors_Base;
+use \UnlimiCore\Base\UnlimiColors_Paths;
+use \UnlimiCore\Base\UnlimiColors_ItemStructure;
+use \UnlimiCore\Base\UnlimiColors_Structure;
 use \UnlimiCore\Core\UnlimiColors_Customize;
 
-class UnlimiColor_API extends UnlimiColor_Base
+class UnlimiColors_API extends UnlimiColors_Base
 {
     protected $unsetData = ['key', 'path', 'key_version'];
 
@@ -31,10 +31,10 @@ class UnlimiColor_API extends UnlimiColor_Base
     {
         $this->_parseRequest();
 
-        $this->settings = new UnlimiColor_Settings();
+        $this->settings = new UnlimiColors_Settings();
         $customize = new UnlimiColors_Customize();
 
-        $this->structure = new UnlimiColor_Structure($customize->getStructure(), $this->settings->getAppVersion());
+        $this->structure = new UnlimiColors_Structure($customize->getStructure(), $this->settings->getAppVersion());
     }
 
     public function getBox()
@@ -43,7 +43,7 @@ class UnlimiColor_API extends UnlimiColor_Base
         $defaultKeyVersion = $this->settings->getKeyVersion();
         $already_exists = false;
 
-        $path = new UnlimiColor_Paths();
+        $path = new UnlimiColors_Paths();
         $keys = $path->toKeys( $this->path );
 
         $elementStructure = [];
@@ -62,10 +62,10 @@ class UnlimiColor_API extends UnlimiColor_Base
         }
         $css = $path->keyToCssPath( $key );
         
-        $elemntStructure = new UnlimiColor_ItemStructure( $elementStructure );
+        $elemntStructure = new UnlimiColors_ItemStructure( $elementStructure );
         $elementStyles = $elemntStructure->getStylesStructure();
         
-        $box = new UnlimiColor_Box( $boxSetting, $key, $css, $elementStyles, $this->key_version, $already_exists );
+        $box = new UnlimiColors_Box( $boxSetting, $key, $css, $elementStyles, $this->key_version, $already_exists );
         $html = $box->get();
 
         $this->_response('success', ['html' => $html]);
@@ -74,12 +74,12 @@ class UnlimiColor_API extends UnlimiColor_Base
     public function add()
     {
         $elementStructure = $this->structure->getElementStructure( $this->key );
-        $item = new UnlimiColor_ItemStructure( $elementStructure );
+        $item = new UnlimiColors_ItemStructure( $elementStructure );
         $item_key_version = $item->keyVersion();
 
         if ( $item_key_version != $this->key_version ) {
             // generate new element
-            $path = new UnlimiColor_Paths();
+            $path = new UnlimiColors_Paths();
             $this->key = $path->toKey( $this->path, $this->key_version );
         }
 

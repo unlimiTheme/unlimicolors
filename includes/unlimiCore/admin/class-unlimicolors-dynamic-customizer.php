@@ -5,12 +5,12 @@
 
 namespace UnlimiCore\Admin;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
+use \UnlimiCore\Base\UnlimiColors_Base;
 
 /**
  * Dynamic customizer class.
  */
-class UnlimiColors_Dynamic_Customizer extends UnlimiColor_Base
+class UnlimiColors_Dynamic_Customizer extends UnlimiColors_Base
 {
     protected $wp_customize;
 

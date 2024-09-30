@@ -2,9 +2,9 @@
 
 namespace UnlimiCore\Admin;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
+use \UnlimiCore\Base\UnlimiColors_Base;
 
-class UnlimiColor_Admin extends UnlimiColor_Base
+class UnlimiColors_Admin extends UnlimiColors_Base
 {
 	/**
 	 * Constructor.

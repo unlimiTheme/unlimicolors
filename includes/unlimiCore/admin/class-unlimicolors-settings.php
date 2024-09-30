@@ -2,9 +2,9 @@
 
 namespace UnlimiCore\Admin;
 
-use UnlimiCore\Base\UnlimiColor_Settings_Base;
+use UnlimiCore\Base\UnlimiColors_Settings_Base;
 
-class UnlimiColor_Settings extends UnlimiColor_Settings_Base
+class UnlimiColors_Settings extends UnlimiColors_Settings_Base
 {
     protected $box_settings_key = 'box_settings';
 

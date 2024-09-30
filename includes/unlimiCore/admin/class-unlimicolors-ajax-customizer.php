@@ -5,7 +5,7 @@ namespace UnlimiCore\Admin;
 /**
  * Ajax customizer.
  */
-class UnlimiColor_AjaxCustomizer {
+class UnlimiColors_AjaxCustomizer {
 
     /**
      * Constructor
@@ -24,25 +24,25 @@ class UnlimiColor_AjaxCustomizer {
 
     public function getBox()
     {
-        $api = new UnlimiColor_API();
+        $api = new UnlimiColors_API();
         $api->getBox();
     }
 
     public function save()
     {
-        $api = new UnlimiColor_API();
+        $api = new UnlimiColors_API();
         $api->add();
     }
 
     public function remove()
     {
-        $api = new UnlimiColor_API();
+        $api = new UnlimiColors_API();
         $api->remove();
     }
 
     public function removeall()
     {
-        $api = new UnlimiColor_API();
+        $api = new UnlimiColors_API();
         $api->removeall();
     }
 }

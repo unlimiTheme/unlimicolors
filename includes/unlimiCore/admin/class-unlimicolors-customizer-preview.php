@@ -35,7 +35,7 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
             return false;
         }
 
-        new UnlimiColor_AjaxCustomizer();
+        new UnlimiColors_AjaxCustomizer();
         add_action( 'customize_preview_init', [$this, 'previewInit'], 99 );
     }
 
@@ -74,7 +74,7 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
 
     protected function _getSettings()
     {
-        $settings = new UnlimiColor_Settings();
+        $settings = new UnlimiColors_Settings();
         $s = $settings->getCustomizer();
 
         return $this->_toObject( $s );

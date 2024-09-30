@@ -2,10 +2,10 @@
 
 namespace UnlimiCore\Admin;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
-use \UnlimiCore\Base\UnlimiColor_Paths;
+use \UnlimiCore\Base\UnlimiColors_Base;
+use \UnlimiCore\Base\UnlimiColors_Paths;
 
-class UnlimiColor_Box extends UnlimiColor_Base
+class UnlimiColors_Box extends UnlimiColors_Base
 {
     protected $key;
 
@@ -84,7 +84,7 @@ class UnlimiColor_Box extends UnlimiColor_Base
 
     protected function _getHeaderTypes()
     {
-        $path = new UnlimiColor_Paths();
+        $path = new UnlimiColors_Paths();
         $key_versions = $path->getKeyVersionsInfo();
 
         $before = '<div class="__unlimithm__types">';

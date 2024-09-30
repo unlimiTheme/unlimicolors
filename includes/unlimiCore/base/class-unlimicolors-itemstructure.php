@@ -4,7 +4,7 @@ namespace UnlimiCore\Base;
 
 use stdClass;
 
-class UnlimiColor_ItemStructure extends UnlimiColor_Base
+class UnlimiColors_ItemStructure extends UnlimiColors_Base
 {
     protected $key;
 

@@ -2,7 +2,7 @@
 
 namespace UnlimiCore\Base;
 
-class UnlimiColor_Element extends UnlimiColor_Base
+class UnlimiColors_Element extends UnlimiColors_Base
 {
     public function getFirst($e, bool $obj=true)
     {

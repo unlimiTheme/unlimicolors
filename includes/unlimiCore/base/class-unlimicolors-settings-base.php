@@ -2,7 +2,7 @@
 
 namespace UnlimiCore\Base;
 
-class UnlimiColor_Settings_Base extends UnlimiColor_Base
+class UnlimiColors_Settings_Base extends UnlimiColors_Base
 {
     protected const SETTINGS_PATH = '../unlimiCore/settings/';
 

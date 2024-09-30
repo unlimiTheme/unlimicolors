@@ -2,7 +2,7 @@
 
 namespace UnlimiCore\Base;
 
-class UnlimiColor_Base
+class UnlimiColors_Base
 {
 	/**
 	 * Constructor.

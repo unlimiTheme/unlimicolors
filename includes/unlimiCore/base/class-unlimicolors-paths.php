@@ -2,9 +2,9 @@
 
 namespace UnlimiCore\Base;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
+use \UnlimiCore\Base\UnlimiColors_Base;
 
-class UnlimiColor_Paths extends UnlimiColor_Base
+class UnlimiColors_Paths extends UnlimiColors_Base
 {
     /**
      * Delimiters list
