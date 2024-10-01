@@ -3,10 +3,10 @@
 /**
  * @link              https://github.com/unlimiTheme/unlimicolors
  * @since             1.0.0
- * @package           UnlimiColors
+ * @package           UNLIMICOLORS
  *
  * @wordpress-plugin
- * Plugin Name:       UnlimiColors
+ * Plugin Name:       UNLIMICOLORS
  * Plugin URI:        https://github.com/unlimiTheme/unlimicolors
  * Description:       Color your website as you wish. Just select an item, choose your favorite color and then enjoy.
  * Version:           1.0.0
@@ -34,7 +34,7 @@ define( 'UNLIMICOLORS_VERSION', '1.0.0' );
 /**
  * Plugin name.
  */
-define( 'UNLIMICOLORS_NAME', 'UnlimiColors' );
+define( 'UNLIMICOLORS_NAME', 'UNLIMICOLORS' );
 
 /**
  * Plugin slug.
@@ -62,7 +62,7 @@ define( 'UNLIMICOLORS_NONCE', 'unlimicolors-customize-action' );
  */
 function unlimicolors_activate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-unlimicolors-activator.php';
-	UnlimiColors_Activator::activate();
+	UNLIMICOLORS_Activator::activate();
 }
 
 /**
@@ -71,7 +71,7 @@ function unlimicolors_activate() {
  */
 function unlimicolors_deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-unlimicolors-deactivator.php';
-	UnlimiColors_Deactivator::deactivate();
+	UNLIMICOLORS_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'unlimicolors_activate' );
@@ -94,7 +94,7 @@ register_deactivation_hook( __FILE__, 'unlimicolors_deactivate' );
  */
 function unlimicolors_run() {
 
-	$plugin = new UnlimiColors();
+	$plugin = new UNLIMICOLORS();
 	$plugin->run();
 
 }

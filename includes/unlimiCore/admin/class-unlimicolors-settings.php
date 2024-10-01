@@ -1,10 +1,10 @@
 <?php
 
-namespace UnlimiCore\Admin;
+namespace UNLIMICOLORS\Admin;
 
-use UnlimiCore\Base\UnlimiColors_Settings_Base;
+use UNLIMICOLORS\Base\UNLIMICOLORS_Settings_Base;
 
-class UnlimiColors_Settings extends UnlimiColors_Settings_Base
+class UNLIMICOLORS_Settings extends UNLIMICOLORS_Settings_Base
 {
     protected $box_settings_key = 'box_settings';
 

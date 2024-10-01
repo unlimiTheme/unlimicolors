@@ -1,10 +1,10 @@
 <?php 
 
-namespace UnlimiCore\Base;
+namespace UNLIMICOLORS\Base;
 
-use \UnlimiCore\Base\UnlimiColors_Base;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Base;
 
-class UnlimiColors_Paths extends UnlimiColors_Base
+class UNLIMICOLORS_Paths extends UNLIMICOLORS_Base
 {
     /**
      * Delimiters list

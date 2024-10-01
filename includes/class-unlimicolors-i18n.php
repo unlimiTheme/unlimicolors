@@ -9,8 +9,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UnlimiColors
- * @subpackage UnlimiColors/includes
+ * @package    UNLIMICOLORS
+ * @subpackage UNLIMICOLORS/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    UnlimiColors
- * @subpackage UnlimiColors/includes
+ * @package    UNLIMICOLORS
+ * @subpackage UNLIMICOLORS/includes
  * 
  */
-class UnlimiColors_i18n {
+class UNLIMICOLORS_i18n {
 
 
 	/**

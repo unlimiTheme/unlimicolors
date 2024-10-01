@@ -3,11 +3,11 @@
  * Customize
  */
 
-namespace UnlimiCore\Core;
+namespace UNLIMICOLORS\Core;
 
-use \UnlimiCore\Base\UnlimiColors_Customize_base;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Customize_base;
 
-class UnlimiColors_Customize extends UnlimiColors_Customize_base
+class UNLIMICOLORS_Customize extends UNLIMICOLORS_Customize_base
 {
     static $stucture_key = 'unlimicolors_plugin_structure_json';
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace UnlimiCore\Admin;
+namespace UNLIMICOLORS\Admin;
 
-use \UnlimiCore\Base\UnlimiColors_Base;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Base;
 
-class UnlimiColors_Admin extends UnlimiColors_Base
+class UNLIMICOLORS_Admin extends UNLIMICOLORS_Base
 {
 	/**
 	 * Constructor.
@@ -18,7 +18,7 @@ class UnlimiColors_Admin extends UnlimiColors_Base
     {
 		$this->_loadBasesDependencies();
 		
-		new UnlimiColors_Customizer_Preview();
+		new UNLIMICOLORS_Customizer_Preview();
     }
 
     public function _loadBasesDependencies()

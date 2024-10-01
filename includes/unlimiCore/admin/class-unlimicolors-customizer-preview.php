@@ -3,14 +3,14 @@
  * Customizer.
  */
 
-namespace UnlimiCore\Admin;
+namespace UNLIMICOLORS\Admin;
 
-use \UnlimiCore\Core\UnlimiColors_Customize;
+use \UNLIMICOLORS\Core\UNLIMICOLORS_Customize;
 
 /**
  * Customizer Preview.
  */
-class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
+class UNLIMICOLORS_Customizer_Preview extends UNLIMICOLORS_Customize
 {
 	/**
 	 * Constructor.
@@ -25,7 +25,7 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
 
     protected function _initControls()
     {
-        new UnlimiColors_Dynamic_Customizer( $this->_getSettings() );
+        new UNLIMICOLORS_Dynamic_Customizer( $this->_getSettings() );
         add_action( 'customize_controls_enqueue_scripts', [$this, 'enqueueScriptsLiveControls'], 99 );
     }
 
@@ -35,7 +35,7 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
             return false;
         }
 
-        new UnlimiColors_AjaxCustomizer();
+        new UNLIMICOLORS_AjaxCustomizer();
         add_action( 'customize_preview_init', [$this, 'previewInit'], 99 );
     }
 
@@ -74,7 +74,7 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
 
     protected function _getSettings()
     {
-        $settings = new UnlimiColors_Settings();
+        $settings = new UNLIMICOLORS_Settings();
         $s = $settings->getCustomizer();
 
         return $this->_toObject( $s );

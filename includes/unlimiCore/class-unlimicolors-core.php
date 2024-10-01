@@ -1,11 +1,11 @@
 <?php 
 
-namespace UnlimiCore\Core;
+namespace UNLIMICOLORS\Core;
 
-use UnlimiCore\Base\UnlimiColors_Structure;
-use UnlimiCore\admin\UnlimiColors_Admin;
+use UNLIMICOLORS\Base\UNLIMICOLORS_Structure;
+use UNLIMICOLORS\admin\UNLIMICOLORS_Admin;
 
-class UnlimiColors_Core
+class UNLIMICOLORS_Core
 {
     protected $styles;
 
@@ -23,7 +23,7 @@ class UnlimiColors_Core
 
     protected function _initAdmin()
     {
-        new UnlimiColors_Admin();
+        new UNLIMICOLORS_Admin();
     }
 
     protected function _loadBasesDependencies()
@@ -48,9 +48,9 @@ class UnlimiColors_Core
 
     public function displayCustomCSS() 
     {
-        $c = new UnlimiColors_Customize();
-        $s = new UnlimiColors_Structure($c->getStructure());
-        $css = new UnlimiColors_CSS();
+        $c = new UNLIMICOLORS_Customize();
+        $s = new UNLIMICOLORS_Structure($c->getStructure());
+        $css = new UNLIMICOLORS_CSS();
 
         $styles = $css->toCSS($s);
 
@@ -68,4 +68,4 @@ class UnlimiColors_Core
     }
 }
 
-new UnlimiColors_Core();
+new UNLIMICOLORS_Core();

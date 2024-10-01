@@ -1,8 +1,8 @@
 <?php 
 
-namespace UnlimiCore\Base;
+namespace UNLIMICOLORS\Base;
 
-class UnlimiColors_Element extends UnlimiColors_Base
+class UNLIMICOLORS_Element extends UNLIMICOLORS_Base
 {
     public function getFirst($e, bool $obj=true)
     {

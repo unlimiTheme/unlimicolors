@@ -1,15 +1,15 @@
 <?php 
 
-namespace UnlimiCore\Core;
+namespace UNLIMICOLORS\Core;
 
 use stdClass;
 
-use \UnlimiCore\Base\UnlimiColors_Base;
-use \UnlimiCore\Base\UnlimiColors_ItemStructure;
-use \UnlimiCore\Base\UnlimiColors_Structure;
-use \UnlimiCore\Base\UnlimiColors_Paths;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Base;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_ItemStructure;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Structure;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Paths;
 
-class UnlimiColors_CSS extends UnlimiColors_Base
+class UNLIMICOLORS_CSS extends UNLIMICOLORS_Base
 {
     protected $settings;
 
@@ -18,15 +18,15 @@ class UnlimiColors_CSS extends UnlimiColors_Base
     public function __construct()
     {}
 
-    public function toCSS( UnlimiColors_Structure $structure ): string
+    public function toCSS( UNLIMICOLORS_Structure $structure ): string
     {
         $styles = $structure->getStyles();
-        $path = new UnlimiColors_Paths();
+        $path = new UNLIMICOLORS_Paths();
 
         $css = [];
         foreach ( $styles as $style ) {
 
-            $s = new UnlimiColors_ItemStructure( $style );
+            $s = new UNLIMICOLORS_ItemStructure( $style );
             $items = $s->getStylesStructure();
             $key_version = $s->keyVersion();
 
