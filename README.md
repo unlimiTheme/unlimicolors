@@ -1,4 +1,4 @@
-# UNLIMICOLORS - Color your website #
+# Unlimicolors #
 **Contributors:** unlimitheme
 **Tags:** color, colors, colour, colours, design, customize, customizer, css, add style, customize theme
 **Requires at least:** 6.0
@@ -46,8 +46,8 @@ This plugin allows you to customize the colors of the themes through the Customi
 ## Installation ##
 
 * In the WP admin panel, go to "Plugins" -> "Add new".
-* Type "UNLIMICOLORS - Color your website" in the input called "Search Plugins".
-* Select the "UNLIMICOLORS - Color your website" plugin and click the button "Install".
+* Type "Unlimicolors" in the input called "Search Plugins".
+* Select the "Unlimicolors" plugin and click the button "Install".
 * Activate the plugin.
 
 ## Screenshots ##

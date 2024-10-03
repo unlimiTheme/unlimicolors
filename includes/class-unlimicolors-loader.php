@@ -6,8 +6,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UNLIMICOLORS
- * @subpackage UNLIMICOLORS/includes
+ * @package    unlimicolors
+ * @subpackage unlimicolors/includes
  */
 
 /**
@@ -17,8 +17,8 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    UNLIMICOLORS
- * @subpackage UNLIMICOLORS/includes
+ * @package    unlimicolors
+ * @subpackage unlimicolors/includes
  * 
  */
 class UNLIMICOLORS_Loader {

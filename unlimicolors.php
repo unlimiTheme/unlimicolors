@@ -3,10 +3,10 @@
 /**
  * @link              https://github.com/unlimiTheme/unlimicolors
  * @since             1.0.0
- * @package           UNLIMICOLORS
+ * @package           Unlimicolors
  *
  * @wordpress-plugin
- * Plugin Name:       UNLIMICOLORS
+ * Plugin Name:       Unlimicolors
  * Plugin URI:        https://github.com/unlimiTheme/unlimicolors
  * Description:       Color your website as you wish. Just select an item, choose your favorite color and then enjoy.
  * Version:           1.0.3
