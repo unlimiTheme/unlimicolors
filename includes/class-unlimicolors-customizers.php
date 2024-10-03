@@ -1,22 +1,25 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /**
  * Change colors in the Customizer.
  */
 
-use UnlimCore\Core\UnlimiColors_Customizer;
+use UnlimCore\Core\UNLIMICOLORS_Customizer;
 
 /**
  * Customizer class.
  */
-class UnlimiColors_Customizers
+class UNLIMICOLORS_Customizers
 {
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
 		
-		new UnlimiColors_Customizer();
+		new UNLIMICOLORS_Customizer();
 	}
 }
 
-new UnlimiColors_Customizers();
+new UNLIMICOLORS_Customizers();

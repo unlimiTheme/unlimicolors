@@ -1,10 +1,10 @@
 <?php 
 
-namespace UnlimiCore\Base;
+namespace UNLIMICOLORS\Base;
 
 use stdClass;
 
-class UnlimiColor_ItemStructure extends UnlimiColor_Base
+class UNLIMICOLORS_ItemStructure extends UNLIMICOLORS_Base
 {
     protected $key;
 

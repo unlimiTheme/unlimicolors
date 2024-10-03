@@ -1,8 +1,8 @@
 <?php
 
-namespace UnlimiCore\Base;
+namespace UNLIMICOLORS\Base;
 
-class UnlimiColor_Settings_Base extends UnlimiColor_Base
+class UNLIMICOLORS_Settings_Base extends UNLIMICOLORS_Base
 {
     protected const SETTINGS_PATH = '../unlimiCore/settings/';
 

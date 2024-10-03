@@ -9,8 +9,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UnlimiColors
- * @subpackage UnlimiColors/includes
+ * @package    UNLIMICOLORS
+ * @subpackage UNLIMICOLORS/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    UnlimiColors
- * @subpackage UnlimiColors/includes
+ * @package    UNLIMICOLORS
+ * @subpackage UNLIMICOLORS/includes
  * 
  */
-class UnlimiColors {
+class UNLIMICOLORS {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class UnlimiColors {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      UnlimiColors_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      UNLIMICOLORS_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -76,7 +76,7 @@ class UnlimiColors {
 		if ( defined( 'UNLIMICOLORS_VERSION' ) ) {
 			$this->plugin_name = UNLIMICOLORS_VERSION;
 		} else {
-			$this->plugin_name = 'UnlimiColors';
+			$this->plugin_name = 'UNLIMICOLORS';
 		}
 
 		$this->load_dependencies();
@@ -90,10 +90,10 @@ class UnlimiColors {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - UnlimiColors_Loader. Orchestrates the hooks of the plugin.
-	 * - UnlimiColors_i18n. Defines internationalization functionality.
-	 * - UnlimiColors_Admin. Defines all hooks for the admin area.
-	 * - UnlimiColors_Public. Defines all hooks for the public side of the site.
+	 * - UNLIMICOLORS_Loader. Orchestrates the hooks of the plugin.
+	 * - UNLIMICOLORS_i18n. Defines internationalization functionality.
+	 * - UNLIMICOLORS_Admin. Defines all hooks for the admin area.
+	 * - UNLIMICOLORS_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -128,14 +128,14 @@ class UnlimiColors {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-unlimicolors-public.php';
 
-		$this->loader = new UnlimiColors_Loader();
+		$this->loader = new UNLIMICOLORS_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the UnlimiColors_i18n class in order to set the domain and to register the hook
+	 * Uses the UNLIMICOLORS_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -205,7 +205,7 @@ class UnlimiColors {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    UnlimiColors_Loader    Orchestrates the hooks of the plugin.
+	 * @return    UNLIMICOLORS_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

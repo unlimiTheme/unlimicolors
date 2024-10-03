@@ -6,8 +6,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UnlimiColors
- * @subpackage UnlimiColors/includes
+ * @package    UNLIMICOLORS
+ * @subpackage UNLIMICOLORS/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    UnlimiColors
- * @subpackage UnlimiColors/includes
+ * @package    UNLIMICOLORS
+ * @subpackage UNLIMICOLORS/includes
  * 
  */
-class UnlimiColors_Activator {
+class UNLIMICOLORS_Activator {
 
 	/**
 	 * Short Description. (use period)
