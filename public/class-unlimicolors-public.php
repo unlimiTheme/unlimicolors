@@ -6,8 +6,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UNLIMICOLORS
- * @subpackage UNLIMICOLORS/public
+ * @package    unlimicolors
+ * @subpackage unlimicolors/public
  */
 
 /**
@@ -16,8 +16,8 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    UNLIMICOLORS
- * @subpackage UNLIMICOLORS/public
+ * @package    unlimicolors
+ * @subpackage unlimicolors/public
  * 
  */
 class UNLIMICOLORS_Public {

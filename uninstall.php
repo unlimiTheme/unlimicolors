@@ -22,7 +22,7 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UNLIMICOLORS
+ * @package    unlimicolors
  */
 
 // If uninstall not called from WordPress, then exit.

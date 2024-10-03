@@ -6,8 +6,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UNLIMICOLORS
- * @subpackage UNLIMICOLORS/admin
+ * @package    unlimicolors
+ * @subpackage unlimicolors/admin
  */
 
 /**
@@ -16,8 +16,8 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    UNLIMICOLORS
- * @subpackage UNLIMICOLORS/admin
+ * @package    unlimicolors
+ * @subpackage unlimicolors/admin
  * 
  */
 class UNLIMICOLORS_Admin {

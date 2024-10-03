@@ -9,8 +9,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UNLIMICOLORS
- * @subpackage UNLIMICOLORS/includes
+ * @package    unlimicolors
+ * @subpackage unlimicolors/includes
  */
 
 /**
@@ -23,8 +23,8 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    UNLIMICOLORS
- * @subpackage UNLIMICOLORS/includes
+ * @package    unlimicolors
+ * @subpackage unlimicolors/includes
  * 
  */
 class UNLIMICOLORS {
