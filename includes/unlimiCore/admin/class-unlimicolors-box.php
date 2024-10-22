@@ -1,11 +1,11 @@
 <?php 
 
-namespace UnlimiCore\Admin;
+namespace UNLIMICOLORS\Admin;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
-use \UnlimiCore\Base\UnlimiColor_Paths;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Base;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Paths;
 
-class UnlimiColor_Box extends UnlimiColor_Base
+class UNLIMICOLORS_Box extends UNLIMICOLORS_Base
 {
     protected $key;
 
@@ -59,7 +59,7 @@ class UnlimiColor_Box extends UnlimiColor_Base
 
     protected function _getTitle()
     {
-        return 'UnlimiColors';
+        return 'UNLIMICOLORS';
     }
 
     protected function _getWrapper()
@@ -91,7 +91,7 @@ class UnlimiColor_Box extends UnlimiColor_Base
 
     protected function _getHeaderTypes()
     {
-        $path = new UnlimiColor_Paths();
+        $path = new UNLIMICOLORS_Paths();
         $key_versions = $path->getKeyVersionsInfo();
 
         $before = '<div class="__unlimithm__types">';

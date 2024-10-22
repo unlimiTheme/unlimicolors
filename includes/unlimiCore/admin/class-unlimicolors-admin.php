@@ -1,10 +1,10 @@
 <?php
 
-namespace UnlimiCore\Admin;
+namespace UNLIMICOLORS\Admin;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Base;
 
-class UnlimiColor_Admin extends UnlimiColor_Base
+class UNLIMICOLORS_Admin extends UNLIMICOLORS_Base
 {
 	/**
 	 * Constructor.
@@ -20,7 +20,7 @@ class UnlimiColor_Admin extends UnlimiColor_Base
 
 		add_action( 'wp_footer', [$this, 'settingsArea'] );
 		
-		new UnlimiColors_Customizer_Preview();
+		new UNLIMICOLORS_Customizer_Preview();
     }
 
     public function _loadBasesDependencies()

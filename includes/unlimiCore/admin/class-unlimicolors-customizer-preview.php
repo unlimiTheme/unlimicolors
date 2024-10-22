@@ -3,14 +3,14 @@
  * Customizer.
  */
 
-namespace UnlimiCore\Admin;
+namespace UNLIMICOLORS\Admin;
 
-use \UnlimiCore\Core\UnlimiColors_Customize;
+use \UNLIMICOLORS\Core\UNLIMICOLORS_Customize;
 
 /**
  * Customizer Preview.
  */
-class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
+class UNLIMICOLORS_Customizer_Preview extends UNLIMICOLORS_Customize
 {
 	/**
 	 * Constructor.
@@ -25,7 +25,7 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
 
     protected function _initControls()
     {
-        new UnlimiColors_Dynamic_Customizer( $this->_getSettings() );
+        new UNLIMICOLORS_Dynamic_Customizer( $this->_getSettings() );
         add_action( 'customize_controls_enqueue_scripts', [$this, 'enqueueScriptsLiveControls'], 99 );
     }
 
@@ -35,7 +35,7 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
             return false;
         }
 
-        new UnlimiColor_AjaxCustomizer();
+        new UNLIMICOLORS_AjaxCustomizer();
         add_action( 'customize_preview_init', [$this, 'previewInit'], 99 );
     }
 
@@ -46,11 +46,9 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
 
     public function enqueueScriptsLivePreview()
     {
-        wp_enqueue_script('customize-jquery-ui', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/js/jquery-ui-1.13.2/jquery-ui.min.js', array('jquery'), 'v1.13.2', ['in_footer' => true]);
-
         wp_enqueue_style(UNLIMICOLORS_SLUG.'box-styles', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/css/unlimibox-styles.css', [], UNLIMICOLORS_VERSION);
         wp_enqueue_style(UNLIMICOLORS_SLUG.'icons', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/css/icons.css', [], UNLIMICOLORS_VERSION);
-        wp_enqueue_script(UNLIMICOLORS_SLUG.'box-scripts-js', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/js/unlimibox-scripts.js', array('jquery', 'customize-jquery-ui'), UNLIMICOLORS_VERSION, ['in_footer' => true]);
+        wp_enqueue_script(UNLIMICOLORS_SLUG.'box-scripts-js', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/js/unlimibox-scripts.js', array('jquery', 'jquery-ui-draggable'), UNLIMICOLORS_VERSION, ['in_footer' => true]);
 
         wp_enqueue_script(UNLIMICOLORS_SLUG.'-customizer-previewer', UNLIMICOLORS_PLUGIN_PATH . '/includes/unlimiCore/assets/js/customizer-preview.js', array( 'customize-preview-widgets', UNLIMICOLORS_SLUG.'box-scripts-js'), UNLIMICOLORS_VERSION, ['in_footer' => true]);
         wp_localize_script(UNLIMICOLORS_SLUG.'-customizer-previewer', 'customizerAction', array(
@@ -76,7 +74,7 @@ class UnlimiColors_Customizer_Preview extends UnlimiColors_Customize
 
     protected function _getSettings()
     {
-        $settings = new UnlimiColor_Settings();
+        $settings = new UNLIMICOLORS_Settings();
         $s = $settings->getCustomizer();
 
         return $this->_toObject( $s );
