@@ -7,6 +7,7 @@ use \UNLIMICOLORS\Base\UNLIMICOLORS_Paths;
 use \UNLIMICOLORS\Base\UNLIMICOLORS_ItemStructure;
 use \UNLIMICOLORS\Base\UNLIMICOLORS_Structure;
 use \UNLIMICOLORS\Core\UNLIMICOLORS_Customize;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_VersionCompatibility;
 
 class UNLIMICOLORS_API extends UNLIMICOLORS_Base
 {
@@ -34,7 +35,9 @@ class UNLIMICOLORS_API extends UNLIMICOLORS_Base
         $this->settings = new UNLIMICOLORS_Settings();
         $customize = new UNLIMICOLORS_Customize();
 
-        $this->structure = new UNLIMICOLORS_Structure($customize->getStructure(), $this->settings->getAppVersion());
+        $this->structure = new UNLIMICOLORS_Structure($customize->getStructure(), UNLIMICOLORS_VERSION);
+        
+        $versionCompatibility = new UNLIMICOLORS_VersionCompatibility($this->structure, UNLIMICOLORS_VERSION, 'admin');
     }
 
     public function getBox()

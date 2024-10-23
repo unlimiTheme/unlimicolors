@@ -20,6 +20,11 @@ class UNLIMICOLORS_Structure extends UNLIMICOLORS_Base
         return $this->structure;
     }
 
+    public function getAppVersion(): string
+    {
+        return $this->structure->app_version;
+    }
+
     public function getElementStructure( string $key ): ?object
     {
         if (!$this->_hasKey( $key )) {

@@ -36,6 +36,7 @@ class UNLIMICOLORS_Core
         require_once UNLIMICOLORS_PLUGIN_DIR . 'includes/unlimiCore/base/class-unlimicolors-element.php';
         require_once UNLIMICOLORS_PLUGIN_DIR . 'includes/unlimiCore/base/class-unlimicolors-paths.php';
         require_once UNLIMICOLORS_PLUGIN_DIR . 'includes/unlimiCore/base/class-unlimicolors-structure.php';
+        require_once UNLIMICOLORS_PLUGIN_DIR . 'includes/unlimiCore/base/class-unlimicolors-version-compatibility.php';
 
         require_once UNLIMICOLORS_PLUGIN_DIR . 'includes/unlimiCore/class-unlimicolors-customize.php';
         require_once UNLIMICOLORS_PLUGIN_DIR . 'includes/unlimiCore/class-unlimicolors-css.php';
