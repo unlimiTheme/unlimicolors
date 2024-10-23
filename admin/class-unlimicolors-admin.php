@@ -6,8 +6,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UnlimiColors
- * @subpackage UnlimiColors/admin
+ * @package    unlimicolors
+ * @subpackage unlimicolors/admin
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    UnlimiColors
- * @subpackage UnlimiColors/admin
+ * @package    unlimicolors
+ * @subpackage unlimicolors/admin
  * 
  */
-class UnlimiColors_Admin {
+class UNLIMICOLORS_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -65,10 +65,10 @@ class UnlimiColors_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in UnlimiColors_Loader as all of the hooks are defined
+		 * defined in UNLIMICOLORS_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The UnlimiColors_Loader will then create the relationship
+		 * The UNLIMICOLORS_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,10 +88,10 @@ class UnlimiColors_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in UnlimiColors_Loader as all of the hooks are defined
+		 * defined in UNLIMICOLORS_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The UnlimiColors_Loader will then create the relationship
+		 * The UNLIMICOLORS_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */

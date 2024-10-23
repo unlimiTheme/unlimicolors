@@ -3,10 +3,10 @@
 /**
  * @link              https://github.com/unlimiTheme/unlimicolors
  * @since             1.0.0
- * @package           UnlimiColors
+ * @package           Unlimicolors
  *
  * @wordpress-plugin
- * Plugin Name:       UnlimiColors
+ * Plugin Name:       Unlimicolors
  * Plugin URI:        https://github.com/unlimiTheme/unlimicolors
  * Description:       Color your website as you wish. Just select an item, choose your favorite color and then enjoy.
  * Version:           1.0.0
@@ -34,7 +34,7 @@ define( 'UNLIMICOLORS_VERSION', '1.0.0' );
 /**
  * Plugin name.
  */
-define( 'UNLIMICOLORS_NAME', 'UnlimiColors' );
+define( 'UNLIMICOLORS_NAME', 'UNLIMICOLORS' );
 
 /**
  * Plugin slug.
@@ -60,22 +60,22 @@ define( 'UNLIMICOLORS_NONCE', 'unlimicolors-customize-action' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-unlimicolors-activator.php
  */
-function activate_unlimicolors() {
+function unlimicolors_activate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-unlimicolors-activator.php';
-	UnlimiColors_Activator::activate();
+	UNLIMICOLORS_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-unlimicolors-deactivator.php
  */
-function deactivate_unlimicolors() {
+function unlimicolors_deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-unlimicolors-deactivator.php';
-	UnlimiColors_Deactivator::deactivate();
+	UNLIMICOLORS_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_unlimicolors' );
-register_deactivation_hook( __FILE__, 'deactivate_unlimicolors' );
+register_activation_hook( __FILE__, 'unlimicolors_activate' );
+register_deactivation_hook( __FILE__, 'unlimicolors_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -92,13 +92,10 @@ register_deactivation_hook( __FILE__, 'deactivate_unlimicolors' );
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function unlimicolors_run() {
 
-	$plugin = new UnlimiColors();
+	$plugin = new UNLIMICOLORS();
 	$plugin->run();
 
 }
-run_plugin_name();
-
-
-
+unlimicolors_run();

@@ -3,14 +3,14 @@
  *Dynamic Customizer.
  */
 
-namespace UnlimiCore\Admin;
+namespace UNLIMICOLORS\Admin;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Base;
 
 /**
  * Dynamic customizer class.
  */
-class UnlimiColors_Dynamic_Customizer extends UnlimiColor_Base
+class UNLIMICOLORS_Dynamic_Customizer extends UNLIMICOLORS_Base
 {
     protected $wp_customize;
 

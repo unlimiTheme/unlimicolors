@@ -6,8 +6,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UnlimiColors
- * @subpackage UnlimiColors/includes
+ * @package    unlimicolors
+ * @subpackage unlimicolors/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    UnlimiColors
- * @subpackage UnlimiColors/includes
+ * @package    unlimicolors
+ * @subpackage unlimicolors/includes
  * 
  */
-class UnlimiColors_Deactivator {
+class UNLIMICOLORS_Deactivator {
 
 	/**
 	 * Short Description. (use period)

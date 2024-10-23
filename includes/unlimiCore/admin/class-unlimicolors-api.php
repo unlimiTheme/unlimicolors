@@ -1,14 +1,14 @@
 <?php 
 
-namespace UnlimiCore\Admin;
+namespace UNLIMICOLORS\Admin;
 
-use \UnlimiCore\Base\UnlimiColor_Base;
-use \UnlimiCore\Base\UnlimiColor_Paths;
-use \UnlimiCore\Base\UnlimiColor_ItemStructure;
-use \UnlimiCore\Base\UnlimiColor_Structure;
-use \UnlimiCore\Core\UnlimiColors_Customize;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Base;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Paths;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_ItemStructure;
+use \UNLIMICOLORS\Base\UNLIMICOLORS_Structure;
+use \UNLIMICOLORS\Core\UNLIMICOLORS_Customize;
 
-class UnlimiColor_API extends UnlimiColor_Base
+class UNLIMICOLORS_API extends UNLIMICOLORS_Base
 {
     protected $unsetData = ['key', 'path', 'key_version'];
 
@@ -31,10 +31,10 @@ class UnlimiColor_API extends UnlimiColor_Base
     {
         $this->_parseRequest();
 
-        $this->settings = new UnlimiColor_Settings();
-        $customize = new UnlimiColors_Customize();
+        $this->settings = new UNLIMICOLORS_Settings();
+        $customize = new UNLIMICOLORS_Customize();
 
-        $this->structure = new UnlimiColor_Structure($customize->getStructure(), $this->settings->getAppVersion());
+        $this->structure = new UNLIMICOLORS_Structure($customize->getStructure(), $this->settings->getAppVersion());
     }
 
     public function getBox()
@@ -43,7 +43,7 @@ class UnlimiColor_API extends UnlimiColor_Base
         $defaultKeyVersion = $this->settings->getKeyVersion();
         $already_exists = false;
 
-        $path = new UnlimiColor_Paths();
+        $path = new UNLIMICOLORS_Paths();
         $keys = $path->toKeys( $this->path );
 
         $elementStructure = [];
@@ -66,10 +66,10 @@ class UnlimiColor_API extends UnlimiColor_Base
 
         $css = $path->keyToCssPath( $key );
         
-        $elemntStructure = new UnlimiColor_ItemStructure( $elementStructure );
+        $elemntStructure = new UNLIMICOLORS_ItemStructure( $elementStructure );
         $elementStyles = $elemntStructure->getStylesStructure();
         
-        $box = new UnlimiColor_Box( $boxSetting, $key, $css, @$last_element['tagname'] , $elementStyles, $this->key_version, $already_exists);
+        $box = new UnlimiColors_Box( $boxSetting, $key, $css, @$last_element['tagname'] , $elementStyles, $this->key_version, $already_exists);
         $html = $box->get();
 
         $this->_response('success', ['html' => $html]);
@@ -78,7 +78,7 @@ class UnlimiColor_API extends UnlimiColor_Base
     public function add()
     {
         $elementStructure = $this->structure->getElementStructure( $this->key );
-        $item = new UnlimiColor_ItemStructure( $elementStructure );
+        $item = new UNLIMICOLORS_ItemStructure( $elementStructure );
         $item_key_version = $item->keyVersion();
 
         if ( $item_key_version != $this->key_version ) {
@@ -88,7 +88,7 @@ class UnlimiColor_API extends UnlimiColor_Base
             }
 
             // generate new element
-            $path = new UnlimiColor_Paths();
+            $path = new UNLIMICOLORS_Paths();
             $this->key = $path->toKey( $this->path, $this->key_version );
         }
 
@@ -97,7 +97,7 @@ class UnlimiColor_API extends UnlimiColor_Base
         $structure = $this->structure->getStructure();
 
         $data = [
-            'target' => UnlimiColors_Customize::$stucture_key, // $this->settings->getStructureId(),
+            'target' => UNLIMICOLORS_Customize::$stucture_key, // $this->settings->getStructureId(),
             'value' => $structure
         ];
 
@@ -110,7 +110,7 @@ class UnlimiColor_API extends UnlimiColor_Base
 
         $structure = $this->structure->getStructure();
         $data = [
-            'target' => UnlimiColors_Customize::$stucture_key, // $this->settings->getStructureId(),
+            'target' => UNLIMICOLORS_Customize::$stucture_key, // $this->settings->getStructureId(),
             'value' => $structure
         ];
 
@@ -123,7 +123,7 @@ class UnlimiColor_API extends UnlimiColor_Base
 
         $structure = $this->structure->getStructure();
         $data = [
-            'target' => UnlimiColors_Customize::$stucture_key, // $this->settings->getStructureId(),
+            'target' => UNLIMICOLORS_Customize::$stucture_key, // $this->settings->getStructureId(),
             'value' => $structure
         ];
 
@@ -137,7 +137,7 @@ class UnlimiColor_API extends UnlimiColor_Base
         $structure = $this->structure->getStructure();
         
         $data = [
-            'target' => UnlimiColors_Customize::$stucture_key, // $this->settings->getStructureId(),
+            'target' => UNLIMICOLORS_Customize::$stucture_key, // $this->settings->getStructureId(),
             'value' => $structure
         ];
 

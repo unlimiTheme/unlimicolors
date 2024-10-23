@@ -1,8 +1,8 @@
 <?php
 
-namespace UnlimiCore\Base;
+namespace UNLIMICOLORS\Base;
 
-class UnlimiColors_Customize_base extends UnlimiColor_Base
+class UNLIMICOLORS_Customize_base extends UNLIMICOLORS_Base
 {
 	/**
 	 * Constructor.

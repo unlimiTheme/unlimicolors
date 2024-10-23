@@ -8,8 +8,8 @@
  * @link       https://github.com/unlimiTheme/unlimicolors
  * @since      1.0.0
  *
- * @package    UnlimiColors
- * @subpackage UnlimiColors/public/partials
+ * @package    unlimicolors
+ * @subpackage unlimicolors/public/partials
  */
 ?>
 
