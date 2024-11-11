@@ -153,20 +153,15 @@ class UNLIMICOLORS_VersionCompatibility
             $style = new UNLIMICOLORS_ItemStructure( $s );
             $styles_structure = $style->getStylesStructure();
 
-            $result = new stdClass();
-            foreach ( $styles_structure as $kk => $ss ) {
-
-                if ( property_exists( $ss, ' ' ) ) {
-                    $result->{$kk} = $ss;
-                    continue;
-                }
-
-                $ss->important = false;
-                $result->{$kk} = new stdClass();
-                $result->{$kk}->{" "} = $ss;
+            if ( property_exists( $styles_structure, ' ' ) ) {
+                continue;
             }
 
-            $this->structure->update( $style->key(), $style->keyVersion(), $result, false, true );
+            $ss = $styles_structure;
+            $styles_structure = new stdClass();
+            $styles_structure->{" "} = $ss;
+
+            $this->structure->update( $style->key(), $style->keyVersion(), $styles_structure, false, true );
         }
     }
 }

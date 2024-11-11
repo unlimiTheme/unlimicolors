@@ -38,7 +38,7 @@ class UNLIMICOLORS_ItemStructure extends UNLIMICOLORS_Base
     public function getStylesStructure(bool $toObject = true)
     {
         return $this->_toObject($this->styles, $toObject);
-    }
+    }   
 
     public function key(): string
     {
@@ -85,11 +85,11 @@ class UNLIMICOLORS_ItemStructure extends UNLIMICOLORS_Base
 
     public function update(object $items, $force=false): void
     {
-        foreach ($items as $selector => $item) {
+        if ($force === true) {
+            $this->styles = $items;
+        } 
 
-            if ($force === true) {
-                $this->styles->{$selector} = new stdClass();
-            } 
+        foreach ($items as $selector => $item) {
 
             foreach ($item as $k => $v) {
 

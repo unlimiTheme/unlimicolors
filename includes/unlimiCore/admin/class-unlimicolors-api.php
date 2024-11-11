@@ -38,6 +38,7 @@ class UNLIMICOLORS_API extends UNLIMICOLORS_Base
         $this->structure = new UNLIMICOLORS_Structure($customize->getStructure(), UNLIMICOLORS_VERSION);
         
         $versionCompatibility = new UNLIMICOLORS_VersionCompatibility($this->structure, UNLIMICOLORS_VERSION, 'admin');
+        $this->structure = $versionCompatibility->getStructure();
     }
 
     public function getBox()
