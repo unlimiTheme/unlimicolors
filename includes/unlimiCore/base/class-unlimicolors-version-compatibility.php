@@ -2,15 +2,14 @@
 
 namespace UNLIMICOLORS\Base;
 
+use \UNLIMICOLORS\Base\UNLIMICOLORS_ItemStructure;
+use stdClass;
+
 class UNLIMICOLORS_VersionCompatibility
 {
     protected $compatibility_options = [
         '1.1.0' => [ // new version
             '1.0.2' => [ // old version
-                'admin' => 'doCompatibilityStyleStructure',
-                'public' => 'doCompatibilityStyleStructureCSS',
-            ],
-            '1.0.4' => [ // old version
                 'admin' => 'doCompatibilityStyleStructure',
                 'public' => 'doCompatibilityStyleStructureCSS',
             ]
@@ -26,7 +25,7 @@ class UNLIMICOLORS_VersionCompatibility
 
     protected $new_version;
 
-    protected $structure;
+    protected UNLIMICOLORS_Structure $structure;
 
     public function __construct( UNLIMICOLORS_Structure $structure, string $new_version, ?string $type = null )
     {
@@ -36,7 +35,13 @@ class UNLIMICOLORS_VersionCompatibility
 
         $this->hydrate();
         $this->_init();
+        $this->_doCompatibilities();
     }
+
+    public function getStructure()
+    {
+        return $this->structure;
+    } 
 
     protected function _init()
     {
@@ -58,10 +63,6 @@ class UNLIMICOLORS_VersionCompatibility
                 }
 
                 $versions[$new_v][$old_v] = $old_versions_details;
-
-                if ( !is_null( $this->type ) && isset( $old_versions_details[$this->type] ) ) {
-                    $this->{$old_versions_details[$this->type]}();
-                }
             }
         }
     }
@@ -96,14 +97,76 @@ class UNLIMICOLORS_VersionCompatibility
         return implode( '.', $version_array );
     }
 
+    protected function dehydrateVersion( $version )
+    {
+        $version_array = explode( '.', $version );
+
+        $version_array = array_map( function( $v ) {
+            return intval( $v );
+        }, $version_array );
+
+        return implode( '.', $version_array );
+    }
+
+    protected function _doCompatibilities()
+    {
+        $type = $this->type;
+        if ( !is_null( $this->type ) ) { 
+            if ( in_array( $this->type, $this->available_types ) ) {
+                $type = [ $this->type ];
+            } else {
+                $type = [];
+            }
+        } else {
+            $type = [];
+        }
+
+        foreach ( $this->compatibility_options as $compatibility ) {    
+            foreach ( $compatibility as $c ) {
+                foreach ( $type as $t ) {
+                    if ( isset( $c[$t] ) ) {
+                        $this->{$c[$t]}();
+                    }
+                }
+            }
+        }
+    }
 
     protected function doCompatibilityStyleStructure()
     {
-        // echo " doCompatibilityStyleStructure ";
+        $this->_styleStructure();
+        $this->structure->setAppVersion( UNLIMICOLORS_VERSION );
+        $this->structure->increaseVersion();
     }
 
     protected function doCompatibilityStyleStructureCSS()
     {
-        // echo " doCompatibilityStyleStructureCSS ";
+        $this->_styleStructure();
+    }
+
+    protected function _styleStructure()
+    {
+        $styles = $this->structure->getStyles();
+
+        foreach ( $styles as $k => $s ) {
+
+            $style = new UNLIMICOLORS_ItemStructure( $s );
+            $styles_structure = $style->getStylesStructure();
+
+            $result = new stdClass();
+            foreach ( $styles_structure as $kk => $ss ) {
+
+                if ( property_exists( $ss, ' ' ) ) {
+                    $result->{$kk} = $ss;
+                    continue;
+                }
+
+                $ss->important = false;
+                $result->{$kk} = new stdClass();
+                $result->{$kk}->{" "} = $ss;
+            }
+
+            $this->structure->update( $style->key(), $style->keyVersion(), $result, false, true );
+        }
     }
 }

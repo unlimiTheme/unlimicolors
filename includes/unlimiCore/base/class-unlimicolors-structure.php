@@ -25,6 +25,11 @@ class UNLIMICOLORS_Structure extends UNLIMICOLORS_Base
         return $this->structure->app_version;
     }
 
+    public function setAppVersion( $app_version )
+    {
+        $this->structure->app_version = $app_version;
+    }
+
     public function getElementStructure( string $key ): ?object
     {
         if (!$this->_hasKey( $key )) {
@@ -80,13 +85,13 @@ class UNLIMICOLORS_Structure extends UNLIMICOLORS_Base
         return;
     }
 
-    public function update(string $key, string $key_version, object $item, bool $increaseVersion=true)
+    public function update(string $key, string $key_version, object $item, bool $increaseVersion=true, bool $force=false)
     {
         if ($increaseVersion === TRUE) {
             $this->increaseVersion();
         }
 
-        $this->_update($key, $key_version, $item);
+        $this->_update($key, $key_version, $item, $force);
     }
 
     public function remove( string $key, bool $increaseVersion=true )
@@ -168,7 +173,7 @@ class UNLIMICOLORS_Structure extends UNLIMICOLORS_Base
         return true;
     }
 
-    protected function _update( string $key, string $key_version, object $items )
+    protected function _update( string $key, string $key_version, object $items, bool $force=false )
     {
         $innerKey = $this->_getInnerkeyByKey( $key );
 
@@ -176,7 +181,7 @@ class UNLIMICOLORS_Structure extends UNLIMICOLORS_Base
 
         $itemStructure = $this->get( $innerKey );
 
-        $itemStructure->update( $items );
+        $itemStructure->update( $items, $force );
         $newStyles = $itemStructure->getStructure();
 
         if (empty((array) $newStyles)) {

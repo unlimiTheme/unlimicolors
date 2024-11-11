@@ -69,7 +69,6 @@ class UNLIMICOLORS_ItemStructure extends UNLIMICOLORS_Base
             }
         }
 
-
         // foreach ($items as $k => $v) {
         //     if (empty($v)) {
         //         continue;
@@ -84,9 +83,13 @@ class UNLIMICOLORS_ItemStructure extends UNLIMICOLORS_Base
         $this->styles = $items;
     }
 
-    public function update(object $items): void
+    public function update(object $items, $force=false): void
     {
         foreach ($items as $selector => $item) {
+
+            if ($force === true) {
+                $this->styles->{$selector} = new stdClass();
+            } 
 
             foreach ($item as $k => $v) {
 
@@ -98,7 +101,7 @@ class UNLIMICOLORS_ItemStructure extends UNLIMICOLORS_Base
                     unset($this->styles->{$selector}->{$k});
                     continue;
                 }
-                
+
                 $this->styles->{$selector}->{$k} = new stdClass();
                 $this->styles->{$selector}->{$k}->value = $v->value;
                 $this->styles->{$selector}->{$k}->important = $v->important;

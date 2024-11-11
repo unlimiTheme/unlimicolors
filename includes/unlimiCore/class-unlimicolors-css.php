@@ -13,11 +13,6 @@ class UNLIMICOLORS_CSS extends UNLIMICOLORS_Base
 {
     protected $settings;
 
-    public function __construct()
-    {
-
-    }
-
     public function toCSS( UNLIMICOLORS_Structure $structure ): string
     {
         $styles = $structure->getStyles();

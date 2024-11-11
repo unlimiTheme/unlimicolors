@@ -3,6 +3,7 @@
 namespace UNLIMICOLORS\Core;
 
 use UNLIMICOLORS\Base\UNLIMICOLORS_Structure;
+use UNLIMICOLORS\Base\UNLIMICOLORS_VersionCompatibility;
 use UNLIMICOLORS\admin\UNLIMICOLORS_Admin;
 
 class UNLIMICOLORS_Core
@@ -51,7 +52,11 @@ class UNLIMICOLORS_Core
     public function displayCustomCSS() 
     {
         $c = new UNLIMICOLORS_Customize();
-        $s = new UNLIMICOLORS_Structure($c->getStructure());
+        $s = new UNLIMICOLORS_Structure( $c->getStructure() );
+        
+        $versionCompatibility = new UNLIMICOLORS_VersionCompatibility( $s, UNLIMICOLORS_VERSION, 'public' );
+        $s = $versionCompatibility->getStructure();
+
         $css = new UNLIMICOLORS_CSS();
 
         $styles = $css->toCSS($s);
