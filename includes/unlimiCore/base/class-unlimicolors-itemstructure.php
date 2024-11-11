@@ -104,7 +104,7 @@ class UNLIMICOLORS_ItemStructure extends UNLIMICOLORS_Base
 
                 $this->styles->{$selector}->{$k} = new stdClass();
                 $this->styles->{$selector}->{$k}->value = $v->value;
-                $this->styles->{$selector}->{$k}->important = $v->important;
+                $this->styles->{$selector}->{$k}->important = $v->important ?? false;
                 $this->styles->{$selector}->{$k}->initial = $default->{$k} ?? '';
             }
         }
