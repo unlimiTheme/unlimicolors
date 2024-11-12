@@ -11,7 +11,7 @@ class UNLIMICOLORS_Structure extends UNLIMICOLORS_Base
     public function __construct($structure = [], string $app_version = '0')
     {
         $this->structure = $this->_toObject($structure);
-          
+        
         $this->_initStructure($app_version);
     }
 
@@ -109,7 +109,7 @@ class UNLIMICOLORS_Structure extends UNLIMICOLORS_Base
 
     protected function _initStructure(string $app_version): void
     {
-        if ( !property_exists( $this->structure, 'app_version' ) ) {
+        if ( !property_exists( $this->structure, 'app_version' ) || $this->structure->app_version != $app_version ) {
             $this->structure->app_version = $app_version ?? '0';
         }
 

@@ -39,8 +39,8 @@ class UNLIMICOLORS_Settings extends UNLIMICOLORS_Settings_Base
     }
 
     public function getAppVersion(): string
-    {
-        if ( property_exists( $this->settings, $this->app_version_key ) ) {
+    {       
+        if ( !property_exists( $this->settings, $this->app_version_key ) ) {
             return '1.0.0';
         }
 

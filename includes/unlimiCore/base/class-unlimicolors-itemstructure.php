@@ -69,18 +69,6 @@ class UNLIMICOLORS_ItemStructure extends UNLIMICOLORS_Base
             }
         }
 
-
-        // foreach ($items as $k => $v) {
-        //     if (empty($v)) {
-        //         continue;
-        //     }
-
-        //     $items->{$k} = new stdClass();
-        //     $items->{$k}->value = $v->value;
-        //     $items->{$k}->important = $v->important;
-        //     $items->{$k}->initial = $default->{$k} ?? '';
-        // }
-
         $this->styles = $items;
     }
 
