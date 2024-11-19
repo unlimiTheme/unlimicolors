@@ -4,7 +4,7 @@
             "id": "unlimicolors_plugin_settings",
             "options": {
                 "title": "Unlimicolors settings",
-                "description": "Select UlimiColors options",
+                "description": "<p>Select UlimiColors options</p><p><i>Use <b>right-click</b> to open the UnlimiColors Box</i></p>",
                 "priority": "1001"
             }
         }
@@ -27,7 +27,7 @@
         "unlimicolors_plugin_use_box": {
             "id": "unlimicolors_plugin_use_box",
             "options": {
-                "label": "Pause!",
+                "label": "Do not show the box on right-click!",
                 "section": "unlimicolors_plugin_settings",
                 "type": "checkbox"
             }

@@ -38,7 +38,7 @@ class UNLIMICOLORS_Admin extends UNLIMICOLORS_Base
 	{
 		echo '<div id="unlimiThmWrapper" class="__unlimithm__box-main-wrapper">';
 		echo '<div class="__unlimithm__box-main-settings">';
-		echo '<input id="unlimiThmUseBox" type="hidden" value="'. esc_attr( get_theme_mod( 'unlimicolor_plugin_use_box' ) ) . '" class="__unlimithm__box-main-settings-use" />';
+		echo '<input id="unlimiThmUseBox" type="hidden" value="'. esc_attr( get_theme_mod( 'unlimicolors_plugin_use_box' ) ) . '" class="__unlimithm__box-main-settings-use" />';
 		echo '</div>';
 		echo '</div>';
 	}
