@@ -41,14 +41,21 @@ class UNLIMICOLORS_Paths extends UNLIMICOLORS_Base
     ];
 
     protected $classes_to_ignore = [
+        /* body */
         'logged-in',
         'wp-embed-responsive',
-        'customize-partial-edit-shortcuts-shown',
         'has-x-large-font-size',
-
-        'logged-in', 
-        'wp-embed-responsive', 
+        'admin-bar',
+        'page-id-***',
+        /* menu */
+        'menu-item-type-***',
+        'menu-item-object-***', 
+        'menu-item-***',
+        'menu-item-has-children', 
+        /* customize */
+        'customize-support',
         'customize-partial-edit-shortcuts-shown',
+        'customize-partial-edit-***',
     ];
     
     /**
@@ -663,10 +670,46 @@ class UNLIMICOLORS_Paths extends UNLIMICOLORS_Base
 
     protected function _filterClasses( $classes )
     {
-        $classes = array_diff( $classes, $this->classes_to_ignore );
         $classes = array_filter( $classes, function( $item ) {
             return strpos( $item , '__unlimithm__' ) === false;
         });
+
+        if ( empty( $classes ) ) {
+            return $classes;
+        }
+
+        $whole_classes = array_filter( $this->classes_to_ignore, function( $item ) {
+            return strpos( $item, '***' ) === false;
+        } );
+
+        $classes = array_diff( $classes, $whole_classes );
+        if ( empty( $classes ) ) {
+            return $classes;
+        }
+        
+        $partial_classes = array_diff( $this->classes_to_ignore, $whole_classes );
+        if ( empty( $partial_classes ) ) {
+            return $classes;
+        }
+
+        $partial_classes_arr = [];
+        foreach ( $partial_classes as $pc ) {
+            $partial_classes_arr[] = explode( '**', $pc );
+        }
+
+        foreach ( $classes as $k => $class ) {
+            foreach ( $partial_classes_arr as $p_class ) {
+                if ( isset( $p_class[0] ) && strpos( $class, $p_class[0] ) === 0 ) {
+                    unset( $classes[$k] );
+                    break;
+                }
+
+                if ( isset( $p_class[2] ) && str_ends_with( $class, $p_class[2] ) === true )  {
+                    unset( $classes[$k] );
+                    break;
+                }
+            }
+        }
 
         return $classes;
     }
