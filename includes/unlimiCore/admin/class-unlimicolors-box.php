@@ -137,7 +137,7 @@ class UNLIMICOLORS_Box extends UNLIMICOLORS_Base
 		$before = '<div class="__unlimithm__bottom">';
 		$before .= '<button class="__unlimithm__bottom_button __unlimithm__save" title="Save changes">Apply</button>';
 		$before .= '<button class="__unlimithm__bottom_button __unlimithm__cancel" title="Cancel the changes for this element">Cancel</button>';
-        $before .= '<button class="__unlimithm__bottom_button __unlimithm__reset" data-confirm="Remove the styles added for this element?" title="Remove styles for this element">Reset</button>';
+        $before .= '<button class="__unlimithm__bottom_button __unlimithm__reset" data-confirm="Remove the added styles for this element?" title="Remove the added styles for this element">Reset</button>';
         $before .= '<button class="__unlimithm__bottom_button __unlimithm__resetall" data-confirm="Remove styles for all elements?" title="Remove styles for all elements">Reset all</button>';
 		$before .= '</div>';
 
